@@ -1,4 +1,6 @@
 <header>
+  <div class="container">
+
     <div class="logo">
       <a href="#"><img src="./assets/images/logo.png" alt="logo"></a>
     </div>
@@ -14,19 +16,46 @@
     </nav>
     <div class="icon">
       <ul class="icon-list">
-        <a href="#"><li class="item">icone</li></a>
-        <a href="#"><li class="item">icone</li></a>
-        <a href="#"><li class="item">icone</li></a>
+        <mat-icon  aria-hidden="false" aria-label="Example home icon" fontIcon="apps"></mat-icon>
+        <a href="#"><li class="item"><mat-icon>facebook</mat-icon></li></a>
+        <a href="#"><li class="item"><mat-icon>facebook"</mat-icon></li></a>
+        <a href="#"><li class="item"><i class="fa-brands fa-facebook-f"></i></li></a>
         <a href="#"></a>
       </ul>
+  </div>
+
   </div>
 </header>
 <section>
 
 </section>
 <div class="landing">
+  <div class="container">
+      <div class="pofile-img">
+        <!-- <div class="shape">
+
+        </div> -->
+        <div class="background-img">
+          <mat-icon  aria-hidden="false" aria-label="Example home icon" fontIcon="apps"></mat-icon>
+          <img src="./assets/images/profile.jpg" alt="">
+        </div>
+      </div>
+      <div class="company-info">
+        <div class="info">
+          <h1>{{companyName|uppercase}}</h1>
+          <h2 class="heading">VolunteerMatch matches inspired people with inspiring causes.</h2>
+          <p class="description">this is non-governmental organizations, play a major role in international development.</p>
+          <p>company type : {{companyType|uppercase}}</p>
+          <div class="btn">
+            <button>new activity</button>
+            <button>your activities</button>
+            <button>edit profile</button>
+          </div>
+        </div>
+      </div>
+    </div>
   <!-- <img src="./assets/images/landing.webp" alt=""> -->
   <!-- <img src="./assets/images/landing.jpg" alt=""> -->
-  <img src="./assets/images/team.jpg" alt="">
+  <!-- <img src="./assets/images/team.jpg" alt=""> -->
 </div>
 
