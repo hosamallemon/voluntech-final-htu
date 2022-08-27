@@ -2,6 +2,7 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -46,8 +47,8 @@ $voluntech-theme: mat.define-light-theme((
   .logo {
     flex: 1;
     img {
-      width: 70px;
-      height: 70px;
+      width: 100px;
+      height: 100px;
     }
   }
 }
@@ -79,3 +80,6 @@ body {  margin: 0;
         font-family: Roboto, "Helvetica Neue", sans-serif;
         background-color: #E5E5E5;
     }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -17,6 +17,18 @@ import { LandingLayoutComponent } from './layout/landing-layout/landing-layout.c
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { EditProfileComponent } from './components/company/edit-profile/edit-profile.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/auth/login/login.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -29,6 +41,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     VolunteerProfileComponent,
     LandingComponent,
     LandingLayoutComponent,
+    EditProfileComponent,
+    LoginComponent,
   ],
   imports: [
 
@@ -37,8 +51,17 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     MatSliderModule,
     MatIconModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatMenuModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    FormsModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
