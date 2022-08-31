@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { collectionData, CollectionReference, doc, docData, Firestore, updateDoc } from '@angular/fire/firestore';
 import { collection } from '@firebase/firestore';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -25,21 +26,23 @@ export class CompaniesService {
   //       url:'bbbbbb.com'
   //     }
   // ];
-  private companycollection:CollectionReference
-  constructor(private firestore:Firestore) {
-    this.companycollection = collection(this.firestore,'companies');
+  private companycollection:AngularFirestoreCollection<Company>
+  constructor(private firestore:AngularFirestore) {
+    this.companycollection = this.firestore.collection('companies');
   }
 
-  getAll():Observable<Company[]>{
-    return collectionData(this.companycollection,{idField:'id'} ) as Observable<Company[]>;
-  }
+  // getAll():Observable<Company[]>{
+  //   return collectionData(this.companycollection,{idField:'id'} ) as Observable<Company[]>;
+  // }
   get(id:string){
-    const docRef = doc(this.firestore,'companies/'+id);
-    return docData(docRef , {idField:'id'}) ;
+    // const docRef = doc(this.firestore,'companies/'+id);
+    // return docData(docRef , {idField:'id'}) ;
+    return from(this.companycollection.doc<Company>(id).get());
   }
   update(company:Company){
-    const docRef = doc(this.firestore,'companies/'+company.id);
-    return updateDoc(docRef,{...company});
+    // const docRef = doc(this.firestore,'companies/'+company.id);
+    // return updateDoc(docRef,{...company});
+    return from(this.companycollection.doc(company.id).update({...company}));
   }
 
 }

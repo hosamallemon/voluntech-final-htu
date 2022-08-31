@@ -1,1 +1,63 @@
 <p>volunteer-profile component works!</p>
+<section>
+  <div class="cintainer">
+    <aside>
+    </aside>
+    <section>
+      <h1>edit information</h1>
+      <div class="edit">
+        <img src="" alt="">
+        <button>complete your profile</button>
+      </div>
+      <div class="info">
+        <h2>account information</h2>
+        <form [formGroup]="profileInfo" (ngSubmit)="submit()">
+          <mat-form-field appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input formControlName="firstName" matInput>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>skills</mat-label>
+            <input matInput formControlName="skills">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>experiences</mat-label>
+            <input matInput formControlName="experiences">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>city</mat-label>
+            <input matInput formControlName="city">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>available time</mat-label>
+            <input matInput formControlName="availableTime">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Select</mat-label>
+            <mat-select>
+              <mat-option value="one">First option</mat-option>
+              <mat-option value="two">Second option</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- <mat-form-field appearance="fill">
+            <mat-label>Textarea</mat-label>
+            <textarea matInput></textarea>
+          </mat-form-field> -->
+        </form>
+
+      </div>
+    </section>
+  </div>
+</section>

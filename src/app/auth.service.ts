@@ -6,11 +6,17 @@ import { from } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  userState$ = this.fireAuth.authState;
 
-  userstate$ = this.fireAuth.authState;
   constructor(private fireAuth:AngularFireAuth) { }
 
   signIn(email:string, password:string){
     return from(this.fireAuth.signInWithEmailAndPassword(email,password));
+  }
+  signOut(){
+    return from(this.fireAuth.signOut());
+  }
+  signUp(email: string, password: string){
+    return from(this.fireAuth.createUserWithEmailAndPassword(email, password));
   }
 }

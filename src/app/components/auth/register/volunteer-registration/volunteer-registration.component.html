@@ -1,0 +1,34 @@
+
+
+<div class="main-container">
+  <div class="container">
+    <div class="logo">
+      <a routerLink="/"><img src="./assets/images/logo3.png" alt=""></a>
+      <p>Be a member of the voluntech family</p>
+    </div>
+    <form class="form-wrapper" [formGroup]="registerForm" (ngSubmit)="submit()">
+      <h1>registration</h1>
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input  matInput formControlName="email" placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="email?.errors?.['required']">Email is required</mat-error>
+        <mat-error *ngIf="email?.errors?.['email']">Email format is incorrect</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password" placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="password?.errors?.['required']">password is required</mat-error>
+        <mat-error *ngIf="password?.errors?.['minlength']">Email must be at least 8 characters</mat-error>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">Create Account</button>
+    </form>
+  </div>
+</div>
+<div class="overlay">
+</div>
+
+
+
+
+

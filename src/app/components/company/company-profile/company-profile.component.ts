@@ -20,21 +20,25 @@ export class CompanyProfileComponent implements OnInit {
   url?:string;
   id?: string;
   ngOnInit(): void {
-    const routeid = this.route.snapshot.paramMap.get('id');
-    if(routeid){
-      this.id = routeid;
-      this.companiesService.get(this.id).pipe(
-        take(1),
-        map(value=> value as Company)
-      ).subscribe((data)=>{
-        console.log("data",data);
-        this.companyName = data.companyName;
-        this.companyType = data.companyType;
-        this.phone = data.phone;
-        this.logo = data.logo;
-        this.url = data.url;
-      })
-    }
+    // const routeid = this.route.snapshot.paramMap.get('id');
+    // if(routeid){
+    //   this.id = routeid;
+    //   this.companiesService.get(this.id).pipe(
+    //     take(1),
+    //     map(value=> value as Company)
+    //   ).subscribe((data)=>{
+    //     console.log("data",data);
+    //     this.companyName = data.companyName;
+    //     this.companyType = data.companyType;
+    //     this.phone = data.phone;
+    //     this.logo = data.logo;
+    //     this.url = data.url;
+    //   })
+    // }
   }
 
+  editProfile(){
+    const routeid = this.route.snapshot.paramMap.get('id');
+    this.router.navigate(['/company/profile/edit',routeid]);
+  }
 }

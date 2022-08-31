@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-
+  hide:boolean = true;
   constructor(private fb:FormBuilder,private AuthService:AuthService,private router:Router) { }
 
   loginForm = this.fb.group({
@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
       }
     })
   }
+
 
   ngOnInit(): void {
   }

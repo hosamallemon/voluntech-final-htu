@@ -6,23 +6,24 @@
     </div>
     <nav>
       <ul class="nav-list">
-        <a href="#"><li class="item">home</li></a>
-        <a href="#"><li class="item">add activity</li></a>
-        <a href="#"><li class="item">activity</li></a>
-        <a href="#"><li class="item">edit profile</li></a>
-        <a href="#"><li class="item">about</li></a>
-        <a href="#"><li class="item">contact us</li></a>
+        <li class="item"><a href="#">home</a></li>
+        <li class="item"><a href="#">add activity</a></li>
+        <li class="item"><a href="#">activity</a></li>
+        <li class="item"><a href="#">edit profile</a></li>
+        <li class="item"><a href="#">about</a></li>
+        <li class="item"><a href="#">contact us</a></li>
       </ul>
     </nav>
     <div class="icon">
       <ul class="icon-list">
-        <mat-icon  aria-hidden="false" aria-label="Example home icon" fontIcon="apps"></mat-icon>
+        <!-- <mat-icon  aria-hidden="false" aria-label="Example home icon" fontIcon="apps"></mat-icon> -->
         <a href="#"><li class="item"><mat-icon>facebook</mat-icon></li></a>
         <a href="#"><li class="item"><mat-icon>facebook"</mat-icon></li></a>
         <a href="#"><li class="item"><i class="fa-brands fa-facebook-f"></i></li></a>
         <a href="#"></a>
       </ul>
-  </div>
+    </div>
+    <mat-icon class="menu" fontIcon="menu"></mat-icon>
 
   </div>
 </header>
@@ -49,7 +50,7 @@
           <div class="btn">
             <button>new activity</button>
             <button>your activities</button>
-            <button>edit profile</button>
+            <button (click)="editProfile()">edit profile</button>
           </div>
         </div>
       </div>

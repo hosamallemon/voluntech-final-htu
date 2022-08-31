@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-// import { FormBuilder, Validators,FormGroup } from '@angular/forms';
-import {FormControl, FormGroupDirective, NgForm, Validators,FormBuilder} from '@angular/forms';
-import { AuthService } from './../../../auth.service';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-@Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
-})
-export class RegisterComponent implements OnInit {
+import { AuthService } from '../../../../auth.service';
 
+@Component({
+  selector: 'app-company-registration',
+  templateUrl: './company-registration.component.html',
+  styleUrls: ['./company-registration.component.scss']
+})
+export class CompanyRegistrationComponent implements OnInit {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(private fb:FormBuilder,private AuthService:AuthService,private router:Router) { }

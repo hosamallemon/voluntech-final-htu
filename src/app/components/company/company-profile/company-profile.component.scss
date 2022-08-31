@@ -10,16 +10,24 @@ header {
   top: 0;
   left: 0;
   z-index: 3;
-  background: rgba(0, 0, 0, 0.2);
+  // background: rgba(0, 0, 0, 0.2);
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-
-
-  nav {
-    .nav-list {
+    .logo img{
+      width: 90px;
+      height: 80px;
+    }
+    .nav-list{
+      padding: 3px;
+      padding-right: 20px;
+      border-right: 2px solid black;
+      @media(max-width:768px){
+        &{
+          display: none;
+        }
+      }
       .item {
         text-decoration: none;
         font-family: "Roboto";
@@ -27,15 +35,49 @@ header {
         font-weight: 400;
         font-size: 12px;
         line-height: 14px;
+        padding-left: 20px;
+        color: white;
+        a{
+          position: relative;
+          padding-bottom: 8px;
+          color: black;
+          &::before{
+            content: "";
+            bottom: 0px;
+            left: 0px;
+            position: absolute;
+            background-color: #01BC9A;
+            width: 0;
+            height: 4px;
+            transition:ease all .3s;
+          }
+        }
+        a:hover {
+          &::before{
+            width: 100%;
+          }
+        }
+      }
+    }
+    .icon{
+      @media(max-width:768px){
+        &{
+          display: none;
+        }
+      }
+    }
+
+    .menu{
+      display: none;
+      @media(max-width:768px){
+        &{
+          font-size: 32px;
+          display: flex;
+        }
       }
     }
   }
-  ul {
-    .item {
-      padding-left: 25px;
-      color: white;
-    }
-  }
+
 
   a {
     text-transform: capitalize;
@@ -43,6 +85,7 @@ header {
 }
 .landing {
   // background-color: #2d2e37;
+
   width: 100%;
   height: 800px;
   .container {
@@ -101,8 +144,12 @@ header {
         max-width: 75%;
         // height: 400px;
         color: black;
-        // position: absolute;
-        // top: 220px;
+        @media(max-width:768px){
+          &{
+            max-width: 100%;
+
+          }
+        }
         h1 {
           font-family: Lora;
           font-style: normal;
@@ -122,6 +169,14 @@ header {
         .btn{
           display: flex;
           justify-content: space-between;
+          @media(max-width:768px){
+            &{
+              flex-direction: column;
+              button{
+                margin-bottom:  15px;
+              }
+            }
+          }
         }
         button{
           color: white;
