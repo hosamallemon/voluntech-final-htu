@@ -52,9 +52,9 @@ const routes: Routes = [
   ]},
 
   {path:'company',component: CompanyLayoutComponent , canActivate:[AuthGuard],children:[
-    {path:'',redirectTo:'/company/profile/:id',pathMatch:'full'},
-    {path:'profile/:id',component:CompanyProfileComponent},
-    {path:'profile/edit/:id',component:EditProfileComponent},
+    {path:'',redirectTo:'/company/profile',pathMatch:'full'},
+    {path:'profile',component:CompanyProfileComponent},
+    {path:'profile/edit',component:EditProfileComponent},
   ]},
 
   // {path:'volunteer',component: VolunteerLayoutComponent , canActivate:[AuthGuard], children:[

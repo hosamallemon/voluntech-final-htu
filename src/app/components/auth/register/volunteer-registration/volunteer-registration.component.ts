@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../../auth.service';
+import { AuthService } from '../../../../service/authServ/auth.service';
 import { switchMap } from 'rxjs';
-import { VolunteerService } from './../../../../volunteer.service';
+import { VolunteerService } from '../../../../service/volunteerServ/volunteer.service';
 
 @Component({
   selector: 'app-volunteer-registration',

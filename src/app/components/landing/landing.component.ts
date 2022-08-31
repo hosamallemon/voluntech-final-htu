@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CompaniesService } from './../../companies.service';
+
 
 @Component({
   selector: 'app-landing',

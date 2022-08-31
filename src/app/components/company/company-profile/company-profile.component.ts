@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, take } from 'rxjs';
-import { CompaniesService, Company } from 'src/app/companies.service';
+
 
 @Component({
   selector: 'app-company-profile',
@@ -11,7 +11,7 @@ import { CompaniesService, Company } from 'src/app/companies.service';
 
 export class CompanyProfileComponent implements OnInit {
 
-  constructor(public companiesService:CompaniesService,private router:Router,private route:ActivatedRoute) { }
+  constructor(private router:Router,private route:ActivatedRoute) { }
 
   companyName?:string;
   companyType?:string;

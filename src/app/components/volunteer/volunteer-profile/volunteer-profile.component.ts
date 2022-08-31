@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, take } from 'rxjs';
-import { Volunteer, VolunteerService } from 'src/app/volunteer.service';
+import { Volunteer, VolunteerService } from 'src/app/service/volunteerServ/volunteer.service';
 
 @Component({
   selector: 'app-volunteer-profile',

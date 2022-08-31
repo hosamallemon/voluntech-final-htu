@@ -3,7 +3,7 @@ import { collectionData, CollectionReference, doc, docData, Firestore, updateDoc
 import { collection } from '@firebase/firestore';
 import { from, map, Observable, of, switchMap } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { AuthService } from './auth.service';
+import { AuthService } from '../authServ/auth.service';
 
 @Injectable({
   providedIn: 'root'
