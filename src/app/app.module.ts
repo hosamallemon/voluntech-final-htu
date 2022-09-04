@@ -37,8 +37,6 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { CreateEventComponent } from './components/company/create-event/create-event/create-event.component';
-import { VolunteerLoginComponent } from './components/auth/login/volunteer-login/volunteer-login.component';
-
 
 @NgModule({
   declarations: [
@@ -59,7 +57,6 @@ import { VolunteerLoginComponent } from './components/auth/login/volunteer-login
     VolunteerRegistrationComponent,
     RegisterTypeLayoutComponent,
     CreateEventComponent,
-    VolunteerLoginComponent,
 
   ],
   imports: [

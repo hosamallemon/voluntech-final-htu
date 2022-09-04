@@ -70,10 +70,10 @@
           </div>
 
           <div class="contact">
-            <p class="phone">phone : {{phone}}</p>
-            <p>email : {{email}}</p>
+            <p class="phone" *ngIf="phone">Phone : {{phone}}</p>
+            <p>Email : {{email}}</p>
           </div>
-          <p>{{url}}</p>
+          <p *ngIf="url">URL: {{url}}</p>
         </div>
       </div>
     </div>

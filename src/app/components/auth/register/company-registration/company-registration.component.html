@@ -14,11 +14,20 @@
         <mat-error *ngIf="email?.errors?.['email']">Email format is incorrect</mat-error>
       </mat-form-field>
 
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Company Name</mat-label>
+        <input matInput formControlName="companyName">
+        <!-- <mat-error *ngIf="companyName?.errors?.['required']">Email is required</mat-error>
+        <mat-error *ngIf="companyName?.errors?.['minlength']">companyName must be at least 3 characters</mat-error>
+        <mat-error *ngIf="companyName?.errors?.['maxlength']">companyName must be no more than 12 characters</mat-error> -->
+      </mat-form-field>
+
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Company Type</mat-label>
-        <mat-select>
-          <mat-option value="one">NGO</mat-option>
-          <mat-option value="two">IT</mat-option>
+        <mat-select  formControlName="companyType">
+          <mat-option value="NGO">NGO</mat-option>
+          <mat-option value="Government">Government</mat-option>
+          <mat-option value="Religious">Religious</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="fill">

@@ -19,7 +19,10 @@ export class CompanyRegistrationComponent implements OnInit {
     private companyservice:CompanyService) { }
   registerForm = this.fb.group({
     email:this.fb.control('',[Validators.required,Validators.email]),
-    password:this.fb.control('',[Validators.required,Validators.minLength(8)])
+    companyName:this.fb.control('',[Validators.required,Validators.maxLength(12),Validators.minLength(3)]),
+    password:this.fb.control('',[Validators.required,Validators.minLength(8)]),
+    companyType:this.fb.control(''),
+
   })
   get email(){
     return this.registerForm.controls.email;
@@ -36,7 +39,10 @@ export class CompanyRegistrationComponent implements OnInit {
             return this.companyservice.create({
               uid: data.user?.uid,
               email: data.user?.email + '',
-              type: "company",
+              companyName: this.registerForm.value.companyName+'',
+              companyType: this.registerForm.value.companyType+'',
+              phone:'',
+              url:'',
             })
 
         }),
