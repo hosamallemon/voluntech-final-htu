@@ -68,4 +68,5 @@ export interface Company{
   phone?:string,
   url?:string,
   email:string,
+  type?:string
 }

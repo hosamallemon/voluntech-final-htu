@@ -18,6 +18,7 @@ import { RegisterTypeLayoutComponent } from './layout/register-type-layout/regis
 import { VolunteerLayoutComponent } from './layout/volunteer-layout/volunteer-layout.component';
 import { CompanyGuard } from './guards/companyGuard/company.guard';
 import { VolunteerGuard } from './guards/volunteerGuard/volunteer.guard';
+import { CreateEventComponent } from './components/company/create-event/create-event/create-event.component';
 
 const routes: Routes = [
   // {path:'',redirectTo:'/landing',pathMatch:'full'},
@@ -57,6 +58,7 @@ const routes: Routes = [
     {path:'',redirectTo:'/company/profile',pathMatch:'full'},
     {path:'profile',component:CompanyProfileComponent},
     {path:'profile/edit',component:EditProfileComponent},
+    {path:'profile/create',component:CreateEventComponent},
   ]},
 
   // {path:'volunteer',component: VolunteerLayoutComponent , canActivate:[AuthGuard], children:[

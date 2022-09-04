@@ -1,27 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-// import { FormBuilder, Validators,FormGroup } from '@angular/forms';
-import {FormControl, FormGroupDirective, NgForm, Validators,FormBuilder} from '@angular/forms';
-import { AuthService } from '../../../service/authServ/auth.service';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
-
-
+import { AuthService } from '../../../../service/authServ/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-
+  selector: 'app-volunteer-login',
+  templateUrl: './volunteer-login.component.html',
+  styleUrls: ['./volunteer-login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class VolunteerLoginComponent implements OnInit {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   hide:boolean = true;
   constructor(private fb:FormBuilder,private AuthService:AuthService,private router:Router) { }
 
   loginForm = this.fb.group({
     email:this.fb.control('',[Validators.required,Validators.email]),
-    password:this.fb.control('',[Validators.required,Validators.minLength(8)]),
-    type:this.fb.control(''),
+    password:this.fb.control('',[Validators.required,Validators.minLength(8)])
   })
 
   get email(){
@@ -39,18 +33,13 @@ export class LoginComponent implements OnInit {
       next:(data)=>{
 
         console.log(data)
-        if(this.loginForm.value.type == 'company')
         this.router.navigate(['company']);
-        else{
-          this.router.navigate(['volunteer']);
-        }
       },
       error:(error)=>{
         alert(error)
       }
     })
   }
-
 
   ngOnInit(): void {
   }

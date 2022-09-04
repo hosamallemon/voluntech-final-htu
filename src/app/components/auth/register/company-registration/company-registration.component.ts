@@ -35,7 +35,8 @@ export class CompanyRegistrationComponent implements OnInit {
         switchMap((data)=> {
             return this.companyservice.create({
               uid: data.user?.uid,
-              email: data.user?.email + ''
+              email: data.user?.email + '',
+              type: "company",
             })
 
         }),

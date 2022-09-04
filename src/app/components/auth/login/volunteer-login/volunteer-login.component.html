@@ -1,3 +1,4 @@
+<p>volunteer-login works!</p>
 
 
 <div class="main-container">
@@ -8,14 +9,6 @@
     </div>
     <form class="form-wrapper" [formGroup]="loginForm" (ngSubmit)="submit()">
       <h1>Login</h1>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>User Type</mat-label>
-        <mat-select formControlName="type">
-          <mat-option value="volunteer">Volunteer</mat-option>
-          <mat-option value="company">Company</mat-option>
-        </mat-select>
-
-      </mat-form-field>
       <mat-form-field class="full-width" appearance="fill">
         <mat-label>Email</mat-label>
         <input  matInput formControlName="email" placeholder="Ex. pat@example.com">

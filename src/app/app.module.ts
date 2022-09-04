@@ -33,6 +33,11 @@ import { CompanyRegistrationComponent } from './components/auth/register/company
 import { VolunteerRegistrationComponent } from './components/auth/register/volunteer-registration/volunteer-registration.component';
 import { RegisterTypeLayoutComponent } from './layout/register-type-layout/register-type-layout.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { CreateEventComponent } from './components/company/create-event/create-event/create-event.component';
+import { VolunteerLoginComponent } from './components/auth/login/volunteer-login/volunteer-login.component';
 
 
 @NgModule({
@@ -53,6 +58,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     RegisterTypeComponent,
     VolunteerRegistrationComponent,
     RegisterTypeLayoutComponent,
+    CreateEventComponent,
+    VolunteerLoginComponent,
 
   ],
   imports: [
@@ -71,10 +78,13 @@ import {MatTabsModule} from '@angular/material/tabs';
     ReactiveFormsModule,
     FormsModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     BrowserAnimationsModule,
+    provideAuth(() => getAuth()),
+    provideStorage(() => getStorage()),
   ],
   providers: [],
   bootstrap: [AppComponent]
