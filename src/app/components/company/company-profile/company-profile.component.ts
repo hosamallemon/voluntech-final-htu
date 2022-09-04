@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, take } from 'rxjs';
+import { CompanyService } from './../../../service/companyServ/company.service';
 
 
 @Component({
@@ -11,7 +12,9 @@ import { map, take } from 'rxjs';
 
 export class CompanyProfileComponent implements OnInit {
 
-  constructor(private router:Router,private route:ActivatedRoute) { }
+  constructor(private router:Router,
+    private route:ActivatedRoute,
+    private companyService:CompanyService) { }
 
   companyName?:string;
   companyType?:string;
@@ -20,6 +23,13 @@ export class CompanyProfileComponent implements OnInit {
   url?:string;
   id?: string;
   ngOnInit(): void {
+    this.companyService.userState$?.subscribe((profile)=> {
+      if(profile){
+        this.companyName = profile.companyName;
+        this.companyType = profile.companyType;
+      }
+    })
+
     // const routeid = this.route.snapshot.paramMap.get('id');
     // if(routeid){
     //   this.id = routeid;

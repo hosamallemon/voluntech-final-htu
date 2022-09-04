@@ -11,7 +11,7 @@ export class CompanyService {
 
   private volunteercollection:AngularFirestoreCollection<Company>;
   userState$? : Observable<Company | null | undefined>;
-  isLoggedInUserRegularProfile$ = this.authService.userState$.pipe(
+  isLoggedInCompany$ = this.authService.userState$.pipe(
     switchMap((userCredentials)=> {
       if(userCredentials){
         // might be regular user or company

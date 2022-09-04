@@ -10,12 +10,14 @@ import { CompanyProfileComponent } from './components/company/company-profile/co
 import { EditProfileComponent } from './components/company/edit-profile/edit-profile.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { VolunteerProfileComponent } from './components/volunteer/volunteer-profile/volunteer-profile.component';
-import { AuthGuard } from './guards/auth/auth.guard';
+import { AuthGuard } from './guards/authGuard/auth.guard';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { CompanyLayoutComponent } from './layout/company-layout/company-layout.component';
 import { LandingLayoutComponent } from './layout/landing-layout/landing-layout.component';
 import { RegisterTypeLayoutComponent } from './layout/register-type-layout/register-type-layout.component';
 import { VolunteerLayoutComponent } from './layout/volunteer-layout/volunteer-layout.component';
+import { CompanyGuard } from './guards/companyGuard/company.guard';
+import { VolunteerGuard } from './guards/volunteerGuard/volunteer.guard';
 
 const routes: Routes = [
   // {path:'',redirectTo:'/landing',pathMatch:'full'},
@@ -51,7 +53,7 @@ const routes: Routes = [
       {path:'type/company',component:CompanyRegistrationComponent},
   ]},
 
-  {path:'company',component: CompanyLayoutComponent , canActivate:[AuthGuard],children:[
+  {path:'company',component: CompanyLayoutComponent , canActivate:[AuthGuard,CompanyGuard],children:[
     {path:'',redirectTo:'/company/profile',pathMatch:'full'},
     {path:'profile',component:CompanyProfileComponent},
     {path:'profile/edit',component:EditProfileComponent},
@@ -61,7 +63,7 @@ const routes: Routes = [
   //   {path:'',redirectTo:'/volunteer/profile/:id' ,pathMatch:'full'},
   //   {path:'profile/:id',component:VolunteerProfileComponent}
   // ]},
-  {path:'volunteer',component: VolunteerLayoutComponent , canActivate:[AuthGuard], children:[
+  {path:'volunteer',component: VolunteerLayoutComponent , canActivate:[AuthGuard,VolunteerGuard], children:[
     {path:'',redirectTo:'/volunteer/profile' ,pathMatch:'full'},
     {path:'profile',component:VolunteerProfileComponent}
   ]},
