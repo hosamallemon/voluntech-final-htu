@@ -1,0 +1,14 @@
+<p>company-activities-list works!</p>
+<div *ngIf="activities">
+  <ul>
+      <li *ngFor="let activity of activities">
+          <p>{{activity.name}}</p>
+          <p>{{activity.description}}</p>
+          <p *ngIf="activity.range">{{activity.range.start.toDate() | date: 'yyyy/MM/dd'   }}</p>
+          <p *ngIf="activity.range">{{activity.range.end.toDate()|  date: 'yyyy/MM/dd'  }}</p>
+          <!-- <p><a routerLink="/company/{{activity.companyId}}">{{activity.companyName}}</a></p> -->
+      </li>
+
+  </ul>
+</div>
+<p>activities-list works!</p>

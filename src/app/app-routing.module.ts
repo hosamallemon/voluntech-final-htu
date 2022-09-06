@@ -18,7 +18,10 @@ import { RegisterTypeLayoutComponent } from './layout/register-type-layout/regis
 import { VolunteerLayoutComponent } from './layout/volunteer-layout/volunteer-layout.component';
 import { CompanyGuard } from './guards/companyGuard/company.guard';
 import { VolunteerGuard } from './guards/volunteerGuard/volunteer.guard';
-import { CreateEventComponent } from './components/company/create-event/create-event/create-event.component';
+import { CreateActivityComponent } from './components/company/create-activity/create-activity.component';
+import { CompanyActivitiesListComponent } from './components/company/company-activities-list/company-activities-list.component';
+import { AllActivitesComponent } from './components/volunteer/all-activites/all-activites.component';
+import { ActivityDetailsComponent } from './components/volunteer/activity-details/activity-details.component';
 
 const routes: Routes = [
   // {path:'',redirectTo:'/landing',pathMatch:'full'},
@@ -58,7 +61,8 @@ const routes: Routes = [
     {path:'',redirectTo:'/company/profile',pathMatch:'full'},
     {path:'profile',component:CompanyProfileComponent},
     {path:'profile/edit',component:EditProfileComponent},
-    {path:'profile/create',component:CreateEventComponent},
+    {path: 'create-activity', component: CreateActivityComponent},
+    {path: 'activities', component: CompanyActivitiesListComponent},
   ]},
 
   // {path:'volunteer',component: VolunteerLayoutComponent , canActivate:[AuthGuard], children:[
@@ -67,7 +71,9 @@ const routes: Routes = [
   // ]},
   {path:'volunteer',component: VolunteerLayoutComponent , canActivate:[AuthGuard,VolunteerGuard], children:[
     {path:'',redirectTo:'/volunteer/profile' ,pathMatch:'full'},
-    {path:'profile',component:VolunteerProfileComponent}
+    {path:'profile',component:VolunteerProfileComponent},
+    {path:'activities',component:AllActivitesComponent},
+    {path:'activities/:id',component:ActivityDetailsComponent}
   ]},
 ];
 

@@ -1,0 +1,23 @@
+.container{
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.card {
+  max-width: 300px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+a{
+  cursor: pointer;
+  color: white;
+  padding: 10px 20px;
+  border-color: transparent;
+  background-color: #01BC9A !important;
+  text-transform: capitalize;
+  font-size: 16px;
+  margin-right: 20px;
+}

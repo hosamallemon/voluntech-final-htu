@@ -16,7 +16,7 @@ export class CompanyProfileComponent implements OnInit {
 
   constructor(private router:Router,
     private route:ActivatedRoute,
-    private companyService:CompanyService,
+    public companyService:CompanyService,
     public authService:AuthService,
     private uploadService:PicUploadService) { }
 
@@ -66,6 +66,9 @@ export class CompanyProfileComponent implements OnInit {
     this.router.navigate(['/company/profile/edit']);
   }
   createProfile(){
-    this.router.navigate(['/company/profile/create']);
+    this.router.navigate(['/company/create-activity']);
+  }
+  activities(){
+    this.router.navigate(['/company/activities']);
   }
 }

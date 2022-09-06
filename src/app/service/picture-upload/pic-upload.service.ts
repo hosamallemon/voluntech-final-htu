@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { AuthService } from '../authServ/auth.service';
 import { finalize } from 'rxjs';
+import { CompanyService } from './../companyServ/company.service';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import { finalize } from 'rxjs';
 })
 export class PicUploadService {
 
-  constructor(private fireStorage: AngularFireStorage, private authService: AuthService) { }
+  constructor(private fireStorage: AngularFireStorage, private authService: AuthService,companyserv:CompanyService) { }
 
   uploadImage(image: File){
     const filePath = `$'profile_images/${image.name}`;

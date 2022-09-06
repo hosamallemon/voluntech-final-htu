@@ -1,0 +1,56 @@
+<h2>Create Activity</h2>
+<div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <mat-form-field>
+            <input matInput type="text" formControlName="name">
+            <mat-label>Event Name</mat-label>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Favorite Skills</mat-label>
+          <mat-chip-list formControlName="skillsRequired"  #chipList aria-label="Fruit selection">
+            <mat-chip
+
+              *ngFor="let skill of skills"
+              (removed)="remove(skill)">
+              {{skill}}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input
+              matInput
+              placeholder="New Skill..."
+              #fruitInput
+              [formControl]="skillsCtrl"
+              [matAutocomplete]="auto"
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let skill of filteredskills | async" [value]="skill">
+              {{skill}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput formControlName="description">
+            </textarea>
+            <mat-label>Description</mat-label>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input formGroupName="range" [rangePicker]="picker">
+              <input matStartDate formControlName="start" placeholder="Start date">
+              <input matEndDate formControlName="end" placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+
+          </mat-form-field>
+          <button mat-raised-button type="submit">Submit</button>
+    </form>
+</div>

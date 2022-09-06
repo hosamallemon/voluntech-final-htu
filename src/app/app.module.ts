@@ -36,7 +36,15 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { CreateEventComponent } from './components/company/create-event/create-event/create-event.component';
+import { CreateActivityComponent } from './components/company/create-activity/create-activity.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { CompanyActivitiesListComponent } from './components/company/company-activities-list/company-activities-list.component';
+import {MatChipsModule} from '@angular/material/chips';
+import { MatAutocompleteModule } from "@angular/material/autocomplete";
+import { AllActivitesComponent } from './components/volunteer/all-activites/all-activites.component';
+import {MatCardModule} from '@angular/material/card';
+import { ActivityDetailsComponent } from './components/volunteer/activity-details/activity-details.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +64,10 @@ import { CreateEventComponent } from './components/company/create-event/create-e
     RegisterTypeComponent,
     VolunteerRegistrationComponent,
     RegisterTypeLayoutComponent,
-    CreateEventComponent,
+    CreateActivityComponent,
+    CompanyActivitiesListComponent,
+    AllActivitesComponent,
+    ActivityDetailsComponent,
 
   ],
   imports: [
@@ -76,6 +87,11 @@ import { CreateEventComponent } from './components/company/create-event/create-e
     FormsModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatCardModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
