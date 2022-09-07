@@ -30,7 +30,7 @@
         <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
         <mat-error *ngIf="password?.errors?.['required']">password is required</mat-error>
         <mat-error *ngIf="password?.errors?.['minlength']">Email must be at least 8 characters</mat-error>
-        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <button class="eye" type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>

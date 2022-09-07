@@ -35,6 +35,12 @@ $voluntech-theme: mat.define-light-theme((
 @include mat.all-component-themes($voluntech-theme);
 
 /* You can add global styles to this file, and also import other style files */
+$base-color: #FE6E00;
+$second-color:#FDA807;
+:root{
+  $base-color: #FE6E00;
+  $second-color:#FDA807;
+}
 *{
   padding: 0;
   margin: 0;
@@ -80,14 +86,17 @@ a{
   text-decoration: none;
   // position: relative;
   // background-color: #FE6E00;
+  color: black;
+  padding: 10px 0px;
+  // position: relative;
   &::before{
     content: "";
     bottom: 0px;
     left: 0px;
     position: absolute;
-    background-color: #FE6E00;
+    background-color: #FDA807;
     width: 0;
-    height: 4px;
+    height: 3px;
     transition:ease all .3s;
   }
   &:hover {
@@ -100,7 +109,7 @@ a{
 html, body { height: 100%; }
 body {  margin: 0;
         font-family: Roboto, "Helvetica Neue", sans-serif;
-        background-color: #E5E5E5;
+        // background-color: #E5E5E5;
     }
 
 html, body { height: 100%; }
@@ -113,8 +122,90 @@ button{
   color: white;
   padding: 10px 20px;
   border-color: transparent;
-  background-color: #FE6E00 ;
+  background-color: $base-color !important;
   text-transform: capitalize;
   font-size: 16px;
   margin-right: 20px;
+}
+
+#button-3 {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  margin-left: 20px;
+
+}
+
+#button-3 .btn {
+  color: black;
+  position: relative;
+  transition: all .45s ease-Out;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0px;
+  background-color: transparent !important;
+
+}
+.register{
+  // margin-right: 20px;
+  // border-color: #FDA807;
+
+}
+#circle {
+  width: 0%;
+  height: 0%;
+  opacity: 0;
+  line-height: 40px;
+  border-radius: 50%;
+  background: #BFC0C0;
+  background: #FDA807;
+  position: absolute;
+  transition: all .5s ease-Out;
+  top: 20px;
+  left: 70px;
+}
+
+#button-3:hover #circle {
+  width: 200%;
+  height: 500%;
+  opacity: 1;
+  top: -70px;
+  left: -70px;
+}
+.button {
+  display: inline-flex;
+  height: 40px;
+  width: 160px;
+  border: 2px solid #BFC0C0;
+  // margin: 0px 20px;
+  color: #BFC0C0;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: .8em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+}
+
+// input:hover{
+//   border-color:#FDA807 ;
+//   color: red;
+// }
+
+mat-form-field:hover{
+  .mat-form-field-ripple {
+    background-color: #FDA807 !important;
+  }
+  .mat-form-field-underline{
+      &::before{
+        background-color: #FDA807 !important;
+        }
+    color: green !important;
+
+  }
 }

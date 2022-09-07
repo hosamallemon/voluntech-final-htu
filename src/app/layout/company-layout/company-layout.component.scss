@@ -16,7 +16,7 @@ header {
     .nav-list{
       padding: 3px;
       padding-right: 20px;
-      border-right: 2px solid black;
+      border-right: 2px solid rgba(0,0,0,.4);;
       @media(max-width:768px){
         &{
           display: none;
@@ -31,26 +31,31 @@ header {
         line-height: 14px;
         padding-left: 20px;
         color: white;
+        position: relative;
         a{
-          position: relative;
-          padding-bottom: 8px;
           color: black;
-          &::before{
-            content: "";
-            bottom: 0px;
-            left: 0px;
-            position: absolute;
-            background-color: #FE6E00;
-            width: 0;
-            height: 4px;
-            transition:ease all .3s;
-          }
+          position: relative;
         }
-        a:hover {
-          &::before{
-            width: 100%;
-          }
-        }
+        // a{
+        //   position: relative;
+        //   padding-bottom: 8px;
+        //   color: black;
+        //   &::before{
+        //     content: "";
+        //     bottom: 0px;
+        //     left: 0px;
+        //     position: absolute;
+        //     background-color: #FE6E00;
+        //     width: 0;
+        //     height: 3px;
+        //     transition:ease all .3s;
+        //   }
+        // }
+        // a:hover {
+        //   &::before{
+        //     width: 100%;
+        //   }
+        // }
       }
     }
     .icon{
@@ -81,3 +86,4 @@ button{
   border-radius: 3px;
   font-size: 12px;
 }
+

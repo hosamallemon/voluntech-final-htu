@@ -47,6 +47,9 @@ export class VolunteerProfileComponent implements OnInit {
   submit(){
     // debugger
   }
+  all(){
+    this.router.navigate(['/volunteer/activities']);
+  }
   ngOnInit(): void {
 
     this.volunService.userState$?.subscribe((profile)=> {

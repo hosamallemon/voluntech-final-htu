@@ -36,7 +36,7 @@
     </div>
       <div class="button logout-btn" id="button-3"  *ngIf="authService.userState$ | async;">
         <div id="circle"></div>
-        <button (click)="logout()">logout</button>
+        <button class="btn" (click)="logout()">logout</button>
         <!-- <a routerLink="/">Logout</a> -->
       </div>
     <mat-icon class="menu" fontIcon="menu"></mat-icon>

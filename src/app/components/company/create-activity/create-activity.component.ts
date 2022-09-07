@@ -49,6 +49,9 @@ export class CreateActivityComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
   }
+  back(){
+    this.router.navigate(['/company']);
+  }
 
   submit(){
     //get current authenticated user id

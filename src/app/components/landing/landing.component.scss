@@ -144,6 +144,11 @@ header{
       position: relative;
       h1 {
         // @include Edit-font();
+        font-family: 'Lora';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 46px;
         color: black;
       }
       // @include screen-size("mobile") {
@@ -156,6 +161,12 @@ header{
       .text {
         display: flex;
         margin-top: 13px;
+        position: relative;
+        // font-family: "Lora";
+        // font-style: normal;
+        // font-weight: 400;
+        font-size: 12px;
+        line-height: 20px;
         .date {
           // @include Edit-font("Lora", 400, 12px, 15px);
           color: black;

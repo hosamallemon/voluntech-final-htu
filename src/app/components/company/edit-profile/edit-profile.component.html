@@ -1,36 +1,53 @@
 
-<form [formGroup]="profileInfo" (ngSubmit)="saveForm()">
-  <div class="container">
+<div class="form-container">
 
-    
-    <mat-form-field appearance="fill">
-      <mat-label>companyName</mat-label>
-      <input formControlName="companyName" matInput>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Phone</mat-label>
-      <input matInput formControlName="phone">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput formControlName="email">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Website URL</mat-label>
-      <input matInput formControlName="url">
-    </mat-form-field>
-    <mat-form-field appearance="fill" >
-      <mat-label>Company Type</mat-label>
-      <mat-select formControlName="companyType">
-        <mat-option value="NGO">NGO</mat-option>
-        <mat-option value="Government">Government</mat-option>
-        <mat-option value="Religious">Religious</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <div class="btn">
-      <button type="submit">save</button>
-      <button type="butoon" (click)="back()">back</button>
+  <aside>
+    <div class="background">
+      <div class="wrapper">
+        <h1>Edit Profile</h1>
+        <!-- <h2>welcome </h2> -->
+        <!-- <button class="button" type="butoon" (click)="back()">back</button> -->
+        <div class="button logout-btn" id="button-3">
+          <div id="circle"></div>
+          <button class="btn" (click)="back()">back</button>
+          <!-- <a routerLink="/">Logout</a> -->
+        </div>
+      </div>
     </div>
+  </aside>
+  <form [formGroup]="profileInfo" (ngSubmit)="saveForm()">
 
-  </div>
-</form>
+      <mat-form-field appearance="fill">
+        <mat-label>companyName</mat-label>
+        <input formControlName="companyName" matInput>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Website URL</mat-label>
+        <input matInput formControlName="url">
+      </mat-form-field>
+      <mat-form-field appearance="fill" >
+        <mat-label>Company Type</mat-label>
+        <mat-select formControlName="companyType">
+          <mat-option value="NGO">NGO</mat-option>
+          <mat-option value="Government">Government</mat-option>
+          <mat-option value="Religious">Religious</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button type="submit">save</button>
+      <div class="btn">
+
+      </div>
+
+  </form>
+</div>
+<div class="overlay">
+</div>
+
