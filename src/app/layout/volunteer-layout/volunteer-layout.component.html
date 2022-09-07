@@ -1,4 +1,48 @@
-<p>volunteer-layout works!</p>
+<header>
+  <div class="container">
+
+    <div class="logo">
+      <a href="#"><img src="./assets/images/logo.png" alt="logo">
+      </a>
+    </div>
+    <nav>
+      <ul class="nav-list">
+        <li class="item"><a routerLink="/">home</a></li>
+        <li class="item"><a routerLink="/company/create-activity">add activity</a></li>
+        <li class="item"><a routerLink="/company/activities">activity</a></li>
+        <li class="item"><a routerLink="/company/profile/edit">edit profile</a></li>
+        <li class="item"><a routerLink="/">about</a></li>
+        <li class="item"><a routerLink="/">contact us</a></li>
+      </ul>
+    </nav>
+    <div class="icon">
+      <ul class="icon-list">
+        <!-- <mat-icon  aria-hidden="false" aria-label="Example home icon" fontIcon="apps"></mat-icon> -->
+        <a href="#">
+          <li class="item">
+            <mat-icon>facebook</mat-icon>
+          </li>
+        </a>
+        <a href="#">
+          <li class="item">
+            <mat-icon>facebook"</mat-icon>
+          </li>
+        </a>
+        <a href="#">
+          <li class="item"><i class="fa-brands fa-facebook-f"></i></li>
+        </a>
+        <a href="#"></a>
+      </ul>
+    </div>
+      <div class="button" id="button-3"  *ngIf="authService.userState$ | async;">
+        <div id="circle"></div>
+        <button (click)="logout()">logout</button>
+        <!-- <a routerLink="/">Logout</a> -->
+      </div>
+    <mat-icon class="menu" fontIcon="menu"></mat-icon>
+
+  </div>
+</header>
 <div class="wrapper">
   <router-outlet></router-outlet>
 </div>

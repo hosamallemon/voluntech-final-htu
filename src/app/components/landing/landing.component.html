@@ -1,29 +1,65 @@
 
 <header>
   <div class="container">
-    <div class="logo">
-      <a routerLink="/landing"><img src="./assets/images/logo3.png" alt=""></a>
-      <!-- <a routerLink="/landing"><img src="./assets/images/logo2.png" alt=""></a> -->
-    </div>
     <nav>
+      <div class="logo">
+        <a routerLink="/landing"><img src="./assets/images/logo.png" alt=""></a>
+      </div>
+      <ul class="nav-item">
+        <li class="item"><a routerLink="">Home</a> </li>
+        <li class="item"><a routerLink="">About</a></li>
+        <li class="item"><a routerLink="">Contact</a></li>
+      </ul>
       <ul class="nav-list">
-        <li class="item"></li>
-        <li class="item"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="apps"></mat-icon></li>
-        <!-- <li class="item"><button class="btn" mat-stroked-button color="primary">Login</button></li>
-        <li class="item"><button mat-flat-button color="primary">register</button></li>
-        <li><button mat-raised-button class="mat-elevation-z0">BUTTON</button></li> -->
-        <li><div class="button" id="button-3">
-          <div id="circle"></div>
-          <a routerLink="/login">Login</a>
-        </div></li>
-        <li><div class="button" id="button-3">
-          <div id="circle"></div>
-          <a routerLink="/register">register</a>
-        </div></li>
+
+        <li>
+          <ng-template #loginButton>
+            <div class="button" id="button-3">
+              <div id="circle"></div>
+              <a routerLink="/login">Login</a>
+            </div>
+          </ng-template>
+      </li>
+        <li>
+          <div class="button register" id="button-3">
+            <div id="circle"></div>
+            <a routerLink="/register">register</a>
+          </div>
+        </li>
+        <li>
+          <div class="button" id="button-3" (click)="logout()" *ngIf="authService.userState$ | async; else loginButton">
+            <div id="circle"></div>
+            <a routerLink="/">Logout</a>
+          </div>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
 <div class="landing">
+  <div class="container">
+
+    <article class="article-1" role="listitem">
+      <!-- <div class="label"><span>brand</span><span>fashion</span>
+      </div> -->
+      <div class="content">
+        <div class="main-text">
+          <h1>Richird Norton photorealistic rendering as real photos</h1>
+          <div class="text">
+            <div class="date">08.08.2021</div>
+            <p>
+              Progressively incentivize cooperative systems through technically sound functionalities.
+              The credibly productivate seamless data.
+            </p>
+          </div>
+          <ul class="sliderBullet">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
 </div>
 

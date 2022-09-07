@@ -8,16 +8,22 @@
   background-color: white;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
   .logo{
     display: flex;
     flex-direction: column;
     align-items: center;
+    img{
+      position: absolute;
+      top: 20px;
+      left: 40px;
+    }
     p{
 
       font-family: 'Lora';
       font-style: normal;
-      font-weight: 700;
-      font-size: 16px;
+      // font-weight: 700;
+
       line-height: 46px;
     }
   }
@@ -31,8 +37,17 @@
 
 
   h1{
-    text-transform: uppercase;
-    margin-bottom: 50px;
+    font-size: 25px;
+    margin-bottom: 30px;
+    span{
+      font-size: 30px;
+      font-weight: bold;
+      color:#FE6E00;
+      font-size: 35px;
+    }
+    .first{
+      color: #FDA807;
+    }
   }
   form{
     // width: 50%;
@@ -40,6 +55,8 @@
     display: flex;
     align-items: center;
     padding: 100px;
+    padding-bottom: 30px;
+    padding-top: 70px;
     // min-width: 150px;
     // max-width: 500px;
     width: 100%;
@@ -52,7 +69,15 @@
       width: 100%;
     }
     button{
-      background-color: #1AEBB6;
+      background-color: #FE6E00;
+    }
+    .sign-in{
+      padding-top: 50px;
+      margin: 0px;
+      span{
+        color:#FE6E00 ;
+        font-weight: 700;
+      }
     }
   }
 }
@@ -67,5 +92,6 @@
   left: 0;
   width: 50%;
   height: 100%;
-  background-color: rgba(26, 235, 182, 0.9);
+  // background-color: rgba(26, 235, 182, 0.9);
+  background-color: #FDA807;
 }

@@ -46,9 +46,14 @@ $voluntech-theme: mat.define-light-theme((
   // background-color: red;
   .logo {
     flex: 1;
+    a{
+      &::before{
+        content: none;
+      }
+    }
     img {
-      width: 110px;
-      height: 100px;
+      width: 120px;
+      height: 110px;
     }
   }
 }
@@ -73,6 +78,23 @@ ul{
 }
 a{
   text-decoration: none;
+  // position: relative;
+  // background-color: #FE6E00;
+  &::before{
+    content: "";
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    background-color: #FE6E00;
+    width: 0;
+    height: 4px;
+    transition:ease all .3s;
+  }
+  &:hover {
+    &::before{
+      width: 100%;
+    }
+  }
 }
 
 html, body { height: 100%; }
@@ -91,7 +113,7 @@ button{
   color: white;
   padding: 10px 20px;
   border-color: transparent;
-  background-color: #01BC9A !important;
+  background-color: #FE6E00 ;
   text-transform: capitalize;
   font-size: 16px;
   margin-right: 20px;

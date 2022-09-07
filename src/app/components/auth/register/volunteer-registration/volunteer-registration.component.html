@@ -3,11 +3,12 @@
 <div class="main-container">
   <div class="container">
     <div class="logo">
-      <a routerLink="/"><img src="./assets/images/logo3.png" alt=""></a>
+      <a routerLink="/"><img src="./assets/images/logo.png" alt=""></a>
+      <h1>Welcome <span>F</span>riend</h1>
       <p>Be a member of the voluntech family</p>
     </div>
     <form class="form-wrapper" [formGroup]="registerForm" (ngSubmit)="submit()">
-      <h1>registration</h1>
+      <h1><span class="first">V</span>olunteer <span>R</span>egistration</h1>
       <mat-form-field class="full-width" appearance="fill">
         <mat-label>Email</mat-label>
         <input  matInput formControlName="email" placeholder="Ex. pat@example.com">
@@ -22,6 +23,7 @@
         <mat-error *ngIf="password?.errors?.['minlength']">Email must be at least 8 characters</mat-error>
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary">Create Account</button>
+      <p class="sign-in">Alreade have account? <a routerLink="/login"><span>Sign in</span></a></p>
     </form>
   </div>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/authServ/auth.service';
 
 @Component({
   selector: 'app-company-layout',
@@ -7,8 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, public authService: AuthService) {
 
+  }
+  logout(){
+    console.log('logoutttt')
+    this.authService.signOut().subscribe(()=> {
+      this.router.navigate(['']);
+    });
+  }
   ngOnInit(): void {
   }
 

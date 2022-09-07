@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/service/authServ/auth.service';
 
 
 @Component({
@@ -9,11 +10,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() {
+  constructor(private router: Router, public authService: AuthService) {
 
   }
 
 
+  login(){
+    this.router.navigate(['login']);
+  }
+  logout(){
+    this.authService.signOut().subscribe(()=> {
+      this.router.navigate(['']);
+    });
+  }
   ngOnInit(): void {
 
   }

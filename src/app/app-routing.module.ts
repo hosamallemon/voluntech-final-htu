@@ -51,10 +51,10 @@ const routes: Routes = [
   //   {path:'register',component:RegisterComponent}
   // ]},
     {path:'register',component: RegisterTypeLayoutComponent ,children:[
-      {path:'',redirectTo:'/register/type',pathMatch:'full'},
-      {path:'type',component:RegisterTypeComponent},
-      {path:'type/volunteer',component:VolunteerRegistrationComponent},
-      {path:'type/company',component:CompanyRegistrationComponent},
+      {path:'',redirectTo:'/register/volunteer',pathMatch:'full'},
+      // {path:'type',component:RegisterTypeComponent},
+      {path:'volunteer',component:VolunteerRegistrationComponent},
+      {path:'company',component:CompanyRegistrationComponent},
   ]},
 
   {path:'company',component: CompanyLayoutComponent , canActivate:[AuthGuard,CompanyGuard],children:[

@@ -8,17 +8,38 @@
   background-color: white;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  button{
+    background-color: transparent;
+  }
   .logo{
     display: flex;
     flex-direction: column;
     align-items: center;
+    // flex: 0;
+
+    img{
+      position: absolute;
+      top: 20px;
+      left: 40px;
+    }
     p{
 
       font-family: 'Lora';
       font-style: normal;
-      font-weight: 700;
-      font-size: 16px;
+      // font-weight: 700;
+
       line-height: 46px;
+    }
+    h1{
+      font-size: 25px;
+      margin-bottom: 0px;
+      span{
+        font-size: 30px;
+        font-weight: bold;
+        color:#FE6E00;
+
+      }
     }
   }
 }
@@ -30,9 +51,14 @@
   justify-content: center;
 
 
-  h1{
+  h2{
     text-transform: uppercase;
     margin-bottom: 50px;
+    align-self: flex-start;
+    font-size: 25px;
+    span{
+      color: #FE6E00;
+    }
   }
   form{
     // width: 50%;
@@ -52,7 +78,17 @@
       width: 100%;
     }
     button[type=submit]{
-      background-color: #1AEBB6;
+      background-color: #FDA807;
+      background-color: #FE6E00;
+    }
+    .sign-in{
+      padding-top: 30px;
+      margin: 0px;
+      font-weight: 500;
+      span{
+        color:#FE6E00 ;
+        font-weight: 700;
+      }
     }
   }
 }
@@ -67,5 +103,6 @@
   left: 0;
   width: 40%;
   height: 100%;
-  background-color: rgba(26, 235, 182, 0.9);
+  // background-color: rgba(26, 235, 182, 0.9);
+  background-color: #FDA807;
 }

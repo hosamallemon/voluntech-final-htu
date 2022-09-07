@@ -3,86 +3,11 @@
   // width: 100%;
   // font-size: 150px;
 }
-
-header {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 3;
-  // background: rgba(0, 0, 0, 0.2);
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .logo img{
-      width: 90px;
-      height: 80px;
-    }
-    .nav-list{
-      padding: 3px;
-      padding-right: 20px;
-      border-right: 2px solid black;
-      @media(max-width:768px){
-        &{
-          display: none;
-        }
-      }
-      .item {
-        text-decoration: none;
-        font-family: "Roboto";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 14px;
-        padding-left: 20px;
-        color: white;
-        a{
-          position: relative;
-          padding-bottom: 8px;
-          color: black;
-          &::before{
-            content: "";
-            bottom: 0px;
-            left: 0px;
-            position: absolute;
-            background-color: #01BC9A;
-            width: 0;
-            height: 4px;
-            transition:ease all .3s;
-          }
-        }
-        a:hover {
-          &::before{
-            width: 100%;
-          }
-        }
-      }
-    }
-    .icon{
-      @media(max-width:768px){
-        &{
-          display: none;
-        }
-      }
-    }
-
-    .menu{
-      display: none;
-      @media(max-width:768px){
-        &{
-          font-size: 32px;
-          display: flex;
-        }
-      }
-    }
-  }
-
-
-  a {
-    text-transform: capitalize;
-  }
+button{
+  background-color: #FE6E00 !important;
 }
+
+
 .landing {
   // background-color: #2d2e37;
 
@@ -90,7 +15,7 @@ header {
   height: 800px;
   .container {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr 1.2fr;
     height: 100%;
     @media(max-width:768px){
       &{
@@ -104,7 +29,7 @@ header {
     .pofile-img {
       position: relative;
       display: flex;
-      align-items: center;
+      // align-items: center;
       .mat{
         transform: translate(-40%, 62%);
         font-size: 200px;
@@ -184,7 +109,7 @@ header {
           color: white;
           padding: 10px 20px;
           border-color: transparent;
-          background-color: #01BC9A !important;
+          background-color: #FE6E00;
           text-transform: capitalize;
           font-size: 16px;
           margin-right: 20px;

@@ -15,11 +15,11 @@ export class RegisterTypeLayoutComponent implements OnInit {
     this.navLinks = [
         {
             label: 'volunteer',
-            link: 'type/volunteer',
+            link: 'volunteer',
             index: 0
         }, {
             label: 'company',
-            link: 'type/company',
+            link: 'company',
             index: 1
         },
     ];
