@@ -42,7 +42,7 @@
         <mat-error *ngIf="password?.errors?.['required']">password is required</mat-error>
         <mat-error *ngIf="password?.errors?.['minlength']">Email must be at least 8 characters</mat-error>
       </mat-form-field>
-      <button type="submit" mat-raised-button color="primary">Create Account</button>
+      <button type="submit" mat-raised-button color="primary" [disabled]="!registerForm.valid">Create Account</button>
       <p class="sign-in">Alreade have account? <a routerLink="/login"><span>Sign in</span></a></p>
     </form>
   </div>

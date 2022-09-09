@@ -17,11 +17,12 @@ export class CompanyRegistrationComponent implements OnInit {
     private authService:AuthService,
     private router:Router,
     private companyservice:CompanyService) { }
+
   registerForm = this.fb.group({
     email:this.fb.control('',[Validators.required,Validators.email]),
     companyName:this.fb.control('',[Validators.required,Validators.maxLength(12),Validators.minLength(3)]),
     password:this.fb.control('',[Validators.required,Validators.minLength(8)]),
-    companyType:this.fb.control(''),
+    companyType:this.fb.control('',[Validators.required]),
 
   })
   get email(){
