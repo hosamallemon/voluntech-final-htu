@@ -14,15 +14,15 @@
   </aside>
     <form [formGroup]="form" (ngSubmit)="submit()">
       <mat-form-field>
-            <input matInput type="text" formControlName="name">
             <mat-label>Event Name</mat-label>
-        </mat-form-field>
+            <input matInput type="text" formControlName="name">
+            <mat-error *ngIf="name?.errors?.['required']">Event Name is required</mat-error>
+      </mat-form-field>
 
         <mat-form-field>
           <mat-label>Favorite Skills</mat-label>
           <mat-chip-list formControlName="skillsRequired"  #chipList aria-label="Fruit selection">
             <mat-chip
-
               *ngFor="let skill of skills"
               (removed)="remove(skill)">
               {{skill}}
@@ -51,6 +51,7 @@
             <textarea matInput formControlName="description">
             </textarea>
             <mat-label>Description</mat-label>
+            <mat-error *ngIf="description?.errors?.['required']">Description is required</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Enter a date range</mat-label>
@@ -63,7 +64,8 @@
             <mat-date-range-picker #picker></mat-date-range-picker>
 
           </mat-form-field>
-          <button mat-raised-button type="submit">Submit</button>
+
+          <button mat-raised-button type="submit" [disabled]="!form.valid">Submit</button>
     </form>
 
 </div>

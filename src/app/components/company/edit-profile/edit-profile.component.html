@@ -9,7 +9,7 @@
         <!-- <button class="button" type="butoon" (click)="back()">back</button> -->
         <div class="button logout-btn" id="button-3">
           <div id="circle"></div>
-          <button class="btn" (click)="back()">back</button>
+          <button type="button" class="btn" (click)="back()">back</button>
           <!-- <a routerLink="/">Logout</a> -->
         </div>
       </div>
@@ -20,14 +20,20 @@
       <mat-form-field appearance="fill">
         <mat-label>companyName</mat-label>
         <input formControlName="companyName" matInput>
+        <mat-error *ngIf="companyName?.errors?.['required']">Company Name is required</mat-error>
+        <mat-error *ngIf="companyName?.errors?.['maxlength']">The name must be no more 20 characters</mat-error>
+        <mat-error *ngIf="companyName?.errors?.['minlength']">The name must be at least 3 characters</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Phone</mat-label>
         <input matInput formControlName="phone">
+        <mat-error *ngIf="phone?.errors?.['required']">Phone is required</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
         <input matInput formControlName="email">
+        <mat-error *ngIf="email?.errors?.['required']">Email is required</mat-error>
+        <mat-error *ngIf="email?.errors?.['email']">Email format is incorrect</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Website URL</mat-label>
@@ -41,10 +47,8 @@
           <mat-option value="Religious">Religious</mat-option>
         </mat-select>
       </mat-form-field>
-      <button type="submit">save</button>
-      <div class="btn">
-
-      </div>
+      <button mat-raised-button type="submit" [disabled]="!profileInfo.valid">Save</button>
+      <!-- <button type="submit" [disabled]="!profileInfo.valid">save</button> -->
 
   </form>
 </div>

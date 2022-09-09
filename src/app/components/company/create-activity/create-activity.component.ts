@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/authServ/auth.service';
 import { ActivityService } from 'src/app/service/companyServ/activity.service';
@@ -25,14 +25,23 @@ export class CreateActivityComponent implements OnInit,OnDestroy {
   @ViewChild('fruitInput')
   fruitInput!: ElementRef<HTMLInputElement>;
   form = this.fb.group({
-    name: this.fb.control(''),
-    description: this.fb.control(''),
+    name: this.fb.control('',[Validators.required]),
+    description: this.fb.control('',[Validators.required]),
     skillsRequired: this.fb.control([]),
     range: this.fb.group({
       start: new FormControl<Date | null>(null),
       end: new FormControl<Date | null>(null),
     })
   })
+  get name(){
+    return this.form.controls.name;
+  }
+  get description(){
+    return this.form.controls.description;
+  }
+  get skillsRequired(){
+    return this.form.controls.skillsRequired;
+  }
   constructor(private fb: FormBuilder, private activityService: ActivityService,
     private auth: AuthService,
     private router: Router,

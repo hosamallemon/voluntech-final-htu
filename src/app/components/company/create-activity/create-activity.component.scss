@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1.5fr;
   background-color: white;
   margin: 50px;
+  border-radius: 15px;
 
 
   position: relative;
@@ -10,7 +11,9 @@
     padding: 40px;
     position: relative;
     .background{
+      border-radius: 15px;
       .wrapper{
+        border-radius: 15px;
         color: white;
         text-transform: uppercase;
         height: 100%;
@@ -19,6 +22,7 @@
         justify-content: center;
         align-items: center;
         background-color: #FDA807 ;
+
         position: relative;
         padding: 50px;
       }

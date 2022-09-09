@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/authServ/auth.service';
 import { Activity, ActivityService } from 'src/app/service/companyServ/activity.service';
 import {MatTableDataSource} from '@angular/material/table';
+import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -34,7 +35,7 @@ export class CompanyActivitiesListComponent implements OnInit {
   displayedColumns: string[] = ['companyName', 'name', 'skills', 'description','startDate','endDate','applicant'];
   dataSource:MatTableDataSource<Activity> = new MatTableDataSource<Activity>([]);
 
-  constructor(public activitiesService: ActivityService, public authService: AuthService) { }
+  constructor(public activitiesService: ActivityService, public authService: AuthService,private router:Router) { }
   activities?: Activity[]
   // companies: Company[]
   ngOnInit(): void {
@@ -52,6 +53,9 @@ export class CompanyActivitiesListComponent implements OnInit {
     })
   }
 
+  back(){
+    this.router.navigate(['company/profile'])
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

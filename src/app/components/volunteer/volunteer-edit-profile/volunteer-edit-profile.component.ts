@@ -36,9 +36,9 @@ export class VolunteerEditProfileComponent implements OnInit {
     private uploadService:PicUploadService,) { }
 
   profileInfo = this.fb.group({
-    firstName:this.fb.control('',[Validators.required,Validators.maxLength(8)]),
-    lastName:this.fb.control('',[Validators.required,Validators.maxLength(8)]),
-    phone:this.fb.control('',[Validators.required,Validators.maxLength(9)]),
+    firstName:this.fb.control('',[Validators.required,Validators.maxLength(12)]),
+    lastName:this.fb.control('',[Validators.required,Validators.maxLength(12)]),
+    phone:this.fb.control('',[Validators.required,Validators.maxLength(15)]),
     experiences:this.fb.control(''),
     skills:this.fb.control(''),
     courses:this.fb.control(''),
@@ -74,7 +74,7 @@ export class VolunteerEditProfileComponent implements OnInit {
       }))
     ).subscribe(()=> {
         console.log('update was successfull');
-        // this.router.navigate(['/company']);
+        this.router.navigate(['/volunteer']);
     });
   }
   changePic(event : Event){
@@ -82,8 +82,8 @@ export class VolunteerEditProfileComponent implements OnInit {
     const obj = input?.files?.[0] as File;
     this.uploadService.uploadImage(obj,"volunteerPic").subscribe();
 }
-  all(){
-    this.router.navigate(['/volunteer/activities']);
+  back(){
+    this.router.navigate(['/volunteer/profile']);
   }
   ngOnInit(): void {
 

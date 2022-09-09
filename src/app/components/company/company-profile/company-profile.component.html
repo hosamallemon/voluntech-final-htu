@@ -1,9 +1,4 @@
 <div class="form-container" *ngIf="authService.userState$ | async as user">
-
-
-  <section>
-
-  </section>
   <div class="landing">
     <div class="container">
       <div class="pofile-img">
@@ -36,6 +31,7 @@
             <p>Email : {{email}}</p>
           </div>
           <p *ngIf="url">URL: {{url}}</p>
+
         </div>
       </div>
     </div>

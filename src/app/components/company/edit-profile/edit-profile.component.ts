@@ -35,18 +35,31 @@ export class EditProfileComponent implements OnInit {
 
   }
   profileInfo = this.fb.group({
-    companyName:this.fb.control('',[Validators.required,Validators.maxLength(8)]),
+    companyName:this.fb.control('',[Validators.required,Validators.maxLength(20),Validators.minLength(3)]),
     // companyType:this.fb.control(''),
-    phone:this.fb.control('',[Validators.required,Validators.maxLength(9)]),
+    phone:this.fb.control('',[Validators.required,Validators.maxLength(15)]),
     url:this.fb.control(''),
-    email:this.fb.control(''),
-    companyType:this.fb.control(''),
+    email:this.fb.control('',[Validators.required,Validators.email]),
+    companyType:this.fb.control('',[Validators.required]),
     // experiences:this.fb.control(''),
     // skills:this.fb.control(''),
     // courses:this.fb.control(''),
     // availableTime:this.fb.control(''),
     // city:this.fb.control(''),
   })
+
+  get email(){
+    return this.profileInfo.controls.email;
+  }
+  get phone(){
+    return this.profileInfo.controls.phone;
+  }
+  get companyName(){
+    return this.profileInfo.controls.companyName;
+  }
+  get companyType(){
+    return this.profileInfo.controls.companyType;
+  }
 
   types: Type[] = [
     {value: 'NGO', viewValue: 'NGO'},
