@@ -20,25 +20,49 @@ export class VolunteerRegistrationComponent implements OnInit {
     private volunteerservice:VolunteerService) { }
 
   registerForm = this.fb.group({
+    firstName:this.fb.control('',[Validators.required,Validators.minLength(3),Validators.maxLength(9)]),
+    lastName:this.fb.control('',[Validators.required,Validators.minLength(3),Validators.maxLength(9)]),
     email:this.fb.control('',[Validators.required,Validators.email]),
-    password:this.fb.control('',[Validators.required,Validators.minLength(8)])
+    password:this.fb.control('',[Validators.required,Validators.minLength(8)]),
+    skills:'',
+    courses:'',
+    availableTime:'',
+    experiences:'',
+    phone:'',
+    city:'',
   })
+
   get email(){
     return this.registerForm.controls.email;
   }
   get password(){
     return this.registerForm.controls.password;
   }
+  get firstName(){
+    return this.registerForm.controls.firstName;
+  }
+  get lastName(){
+    return this.registerForm.controls.lastName;
+  }
 
   submit(){
     const formValue = this.registerForm.value;
-    this.authService.signUp(formValue.email+'', formValue.password+'')
+    this.authService.signUp(formValue.email+'', formValue.password+'', )
     .pipe(
         switchMap((data)=> {
 
             return this.volunteerservice.create({
               uid: data.user?.uid,
-              email: data.user?.email + ''
+              firstName: this.registerForm.value.firstName+'',
+              lastName: this.registerForm.value.lastName+'',
+              email: data.user?.email + '',
+              city: this.registerForm.value.city+'',
+              phone: this.registerForm.value.phone+'',
+              courses: this.registerForm.value.phone+'',
+              experiences: this.registerForm.value.phone+'',
+              // range: this.registerForm.value.phone+'',
+              skills: this.registerForm.value.phone+'',
+
             })
 
         }),

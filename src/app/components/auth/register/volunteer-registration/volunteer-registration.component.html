@@ -9,6 +9,26 @@
     </div>
     <form class="form-wrapper" [formGroup]="registerForm" (ngSubmit)="submit()">
       <h1><span class="first">V</span>olunteer <span>R</span>egistration</h1>
+
+      <div class="name">
+
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input  matInput formControlName="firstName" placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="firstName?.errors?.['required']">first name is required</mat-error>
+          <mat-error *ngIf="firstName?.errors?.['minlength']">first name must be at least 3 characters</mat-error>
+          <mat-error *ngIf="firstName?.errors?.['maxlength']">first name must be no more than 9 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input  matInput formControlName="lastName" placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="lastName?.errors?.['required']">last name is required</mat-error>
+          <mat-error *ngIf="lastName?.errors?.['minlength']">last name must be at least 3 characters</mat-error>
+          <mat-error *ngIf="lastName?.errors?.['maxlength']">last name must be no more than 9 characters</mat-error>
+        </mat-form-field>
+      </div>
+
       <mat-form-field class="full-width" appearance="fill">
         <mat-label>Email</mat-label>
         <input  matInput formControlName="email" placeholder="Ex. pat@example.com">

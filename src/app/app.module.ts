@@ -45,6 +45,10 @@ import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import { AllActivitesComponent } from './components/volunteer/all-activites/all-activites.component';
 import {MatCardModule} from '@angular/material/card';
 import { ActivityDetailsComponent } from './components/volunteer/activity-details/activity-details.component';
+import {MatTableModule} from '@angular/material/table';
+import { ApplicantsListComponent } from './components/company/applicants-list/applicants-list.component';
+import { VolunteerEditProfileComponent } from './components/volunteer/volunteer-edit-profile/volunteer-edit-profile.component';
+
 
 @NgModule({
   declarations: [
@@ -68,6 +72,11 @@ import { ActivityDetailsComponent } from './components/volunteer/activity-detail
     CompanyActivitiesListComponent,
     AllActivitesComponent,
     ActivityDetailsComponent,
+    ApplicantsListComponent,
+    EditProfileComponent,
+    VolunteerEditProfileComponent
+
+
 
   ],
   imports: [
@@ -92,6 +101,7 @@ import { ActivityDetailsComponent } from './components/volunteer/activity-detail
     MatChipsModule,
     MatAutocompleteModule,
     MatCardModule,
+    MatTableModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),

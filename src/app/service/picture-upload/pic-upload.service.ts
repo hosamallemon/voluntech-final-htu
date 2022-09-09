@@ -11,13 +11,17 @@ import { Observable, map, take, from, filter } from 'rxjs';
   providedIn: 'root'
 })
 export class PicUploadService {
-
+  filePath?:string;
   constructor(private fireStorage: AngularFireStorage, private authService: AuthService,companyserv:CompanyService) { }
 
-  uploadImage(image: File){
-    const filePath = `$'profile_images/${image.name}`;
-    const storageRef = this.fireStorage.ref(filePath);
-    const uploadTask = this.fireStorage.upload(filePath, image);
+  uploadImage(image: File, type:string){
+    if(type == 'volunteerPic'){
+      this.filePath = `$'volunteer_images/${image.name}`;
+    }else{
+      this.filePath = `$'profile_images/${image.name}`;
+    }
+    const storageRef = this.fireStorage.ref(this.filePath);
+    const uploadTask = this.fireStorage.upload(this.filePath, image);
     return uploadTask
     .snapshotChanges()
     .pipe(

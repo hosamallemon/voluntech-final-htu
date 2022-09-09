@@ -68,7 +68,10 @@ export interface Volunteer{
   experiences?:any,
   courses?:any,
   phone?:string,
-  availableTime?:string,
+  range?: {
+    start?: any | null | undefined,
+    end?: any | null | undefined
+  },
   city?:string,
   email:string,
 }

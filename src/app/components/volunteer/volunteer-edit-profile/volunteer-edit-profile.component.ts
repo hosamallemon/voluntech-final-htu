@@ -8,11 +8,12 @@ import { Volunteer, VolunteerService } from 'src/app/service/volunteerServ/volun
 import { switchMap } from 'rxjs';
 
 @Component({
-  selector: 'app-volunteer-profile',
-  templateUrl: './volunteer-profile.component.html',
-  styleUrls: ['./volunteer-profile.component.scss']
+  selector: 'app-volunteer-edit-profile',
+  templateUrl: './volunteer-edit-profile.component.html',
+  styleUrls: ['./volunteer-edit-profile.component.scss']
 })
-export class VolunteerProfileComponent implements OnInit {
+export class VolunteerEditProfileComponent implements OnInit {
+
 
   // firstName?:string;
   // lastName?:string;
@@ -113,4 +114,3 @@ export class VolunteerProfileComponent implements OnInit {
   }
 
 }
-

@@ -88,7 +88,7 @@
       }
     }
     button{
-      transform: translate(129px, -13px);
+      transform: translate(129px, -17px);
     }
     img {
       // position: absolute;
@@ -97,8 +97,6 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      border: 5px solid orange;
-      padding: 3px;
       @media(max-width:768px){
         &{
           width: 100%;

@@ -22,6 +22,8 @@ import { CreateActivityComponent } from './components/company/create-activity/cr
 import { CompanyActivitiesListComponent } from './components/company/company-activities-list/company-activities-list.component';
 import { AllActivitesComponent } from './components/volunteer/all-activites/all-activites.component';
 import { ActivityDetailsComponent } from './components/volunteer/activity-details/activity-details.component';
+import { ApplicantsListComponent } from './components/company/applicants-list/applicants-list.component';
+import { VolunteerEditProfileComponent } from './components/volunteer/volunteer-edit-profile/volunteer-edit-profile.component';
 
 const routes: Routes = [
   // {path:'',redirectTo:'/landing',pathMatch:'full'},
@@ -63,6 +65,7 @@ const routes: Routes = [
     {path:'profile/edit',component:EditProfileComponent},
     {path: 'create-activity', component: CreateActivityComponent},
     {path: 'activities', component: CompanyActivitiesListComponent},
+    {path: 'activities/:id', component: ApplicantsListComponent},
   ]},
 
   // {path:'volunteer',component: VolunteerLayoutComponent , canActivate:[AuthGuard], children:[
@@ -72,6 +75,7 @@ const routes: Routes = [
   {path:'volunteer',component: VolunteerLayoutComponent , canActivate:[AuthGuard,VolunteerGuard], children:[
     {path:'',redirectTo:'/volunteer/profile' ,pathMatch:'full'},
     {path:'profile',component:VolunteerProfileComponent},
+    {path:'profile/edit',component:VolunteerEditProfileComponent},
     {path:'activities',component:AllActivitesComponent},
     {path:'activities/:id',component:ActivityDetailsComponent}
   ]},

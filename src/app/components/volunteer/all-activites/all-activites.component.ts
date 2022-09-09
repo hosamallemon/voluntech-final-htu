@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity, ActivityService } from './../../../service/companyServ/activity.service';
 import { Router } from '@angular/router';
+import { AuthService } from './../../../service/authServ/auth.service';
 
 @Component({
   selector: 'app-all-activites',
@@ -10,7 +11,11 @@ import { Router } from '@angular/router';
 export class AllActivitesComponent implements OnInit {
 
   activities ?:Activity[];
-  constructor(public activityserv:ActivityService,private router:Router) {
+  constructor(public activityserv:ActivityService,
+    private router:Router,
+    public activityServ:ActivityService,
+    private authService:AuthService,) {
+
     this.activityserv.getAll().subscribe((data)=>{
       console.log('all data',data)
       this.activities=data;

@@ -38,7 +38,8 @@
 
   h1{
     font-size: 25px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+
     span{
       font-size: 30px;
       font-weight: bold;
@@ -94,4 +95,10 @@
   height: 100%;
   // background-color: rgba(26, 235, 182, 0.9);
   background-color: #FDA807;
+}
+.name{
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
 }
