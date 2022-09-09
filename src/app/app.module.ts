@@ -48,7 +48,7 @@ import { ActivityDetailsComponent } from './components/volunteer/activity-detail
 import {MatTableModule} from '@angular/material/table';
 import { ApplicantsListComponent } from './components/company/applicants-list/applicants-list.component';
 import { VolunteerEditProfileComponent } from './components/volunteer/volunteer-edit-profile/volunteer-edit-profile.component';
-
+import { HotToastModule } from '@ngneat/hot-toast';
 
 @NgModule({
   declarations: [
@@ -102,6 +102,7 @@ import { VolunteerEditProfileComponent } from './components/volunteer/volunteer-
     MatAutocompleteModule,
     MatCardModule,
     MatTableModule,
+    HotToastModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),

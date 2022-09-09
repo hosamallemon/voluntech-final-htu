@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../../service/authServ/auth.service';
 import { switchMap } from 'rxjs';
 import { VolunteerService } from '../../../../service/volunteerServ/volunteer.service';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-volunteer-registration',
@@ -17,7 +18,8 @@ export class VolunteerRegistrationComponent implements OnInit {
   constructor(private fb:FormBuilder,
     private authService:AuthService,
     private router:Router,
-    private volunteerservice:VolunteerService) { }
+    private volunteerservice:VolunteerService,
+    private toast: HotToastService,) { }
 
   registerForm = this.fb.group({
     firstName:this.fb.control('',[Validators.required,Validators.minLength(3),Validators.maxLength(9)]),
@@ -66,11 +68,11 @@ export class VolunteerRegistrationComponent implements OnInit {
             })
 
         }),
-        // this.toast.observe({
-        //   loading: 'Registering User ...',
-        //   success: 'Succesfully Registered',
-        //   error:(error)=> 'This error Happened: '+error
-        // })
+        this.toast.observe({
+          loading: 'Registering User ...',
+          success: 'Succesfully Registered',
+          error:(error)=> 'This error Happened: '+error
+        })
     )
     .subscribe({
       next: ()=>{

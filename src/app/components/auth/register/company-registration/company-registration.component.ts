@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../../service/authServ/auth.service';
 import { switchMap } from 'rxjs';
 import { CompanyService } from 'src/app/service/companyServ/company.service';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-company-registration',
@@ -13,10 +14,12 @@ import { CompanyService } from 'src/app/service/companyServ/company.service';
 export class CompanyRegistrationComponent implements OnInit {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor(private fb:FormBuilder,
+  constructor(
+    private fb:FormBuilder,
     private authService:AuthService,
     private router:Router,
-    private companyservice:CompanyService) { }
+    private companyservice:CompanyService,
+    private toast: HotToastService,) { }
 
   registerForm = this.fb.group({
     email:this.fb.control('',[Validators.required,Validators.email]),
@@ -47,11 +50,11 @@ export class CompanyRegistrationComponent implements OnInit {
             })
 
         }),
-        // this.toast.observe({
-        //   loading: 'Registering User ...',
-        //   success: 'Succesfully Registered',
-        //   error:(error)=> 'This error Happened: '+error
-        // })
+        this.toast.observe({
+          loading: 'Registering User ...',
+          success: 'Succesfully Registered',
+          error:(error)=> 'This error Happened: '+error
+        })
     )
     .subscribe({
       next: ()=>{
