@@ -44,13 +44,30 @@ export class ActivityDetailsComponent implements OnInit {
   }
 
   apply(){
+
     const id = this.route.snapshot.paramMap.get('id') as string;
-    this.authService.userState$.subscribe((userCredential)=> {
-      this.activityServ.currentUserActvities$?.subscribe((data)=> {
+    this.authService.userState$?.subscribe((authData)=> {
+
+      this.volunteerSrv.userState$?.subscribe((data)=> {
         if(data){
-          this.activityServ.addApplicant(id+'',userCredential?.uid+'')
+          this.activityServ.addApplicant({
+            activityId:             id,
+            applicantUserId:        data.uid+'',
+            applicantFirstName:     data.firstName+'',
+            applicantLastName:      data.lastName+'',
+            applicantSkills:        data.skills,
+            applicantCity:          data.city+'',
+            photoUrl:               authData?.photoURL+'',
+          })
         }
       })
     })
+    // this.volunteerSrv.userState$?.subscribe((userCredential)=> {
+    //   this.activityServ.currentUserActvities$?.subscribe((data)=> {
+    //     if(data){
+    //       this.activityServ.addApplicant(id+'',userCredential?.uid+'')
+    //     }
+    //   })
+    // })
   }
 }

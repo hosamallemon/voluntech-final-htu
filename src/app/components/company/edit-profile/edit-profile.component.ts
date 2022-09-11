@@ -21,14 +21,10 @@ export class EditProfileComponent implements OnInit {
       if(profile){
         this.profileInfo.setValue({
           companyName: profile.companyName+"",
-          // companyType: profile.companyType+"",
           phone: profile.phone+"",
           url: profile.url+"",
           email: profile.email+"",
           companyType:profile.companyType+"",
-          // age: profile.age ?? 0,
-          // email:profile.email+'',
-
         });
       }
     })

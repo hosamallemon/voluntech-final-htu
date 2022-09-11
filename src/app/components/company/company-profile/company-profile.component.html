@@ -6,7 +6,7 @@
           </div> -->
         <div class="background-img">
           <mat-icon class="mat" aria-hidden="false" aria-label="Example home icon" fontIcon="apps"></mat-icon>
-          <img [src]="user.photoURL??'./assets/images/profile.jpg'" alt="">
+          <img [src]="user.photoURL??'./assets/images/default.png'" alt="">
           <button mat-mini-fab (click)="inputFile.click()"><mat-icon>edit</mat-icon></button>
           <input type="file" #inputFile accept="image/*" hidden value="select image" (change)="submit($event)">
         </div>

@@ -64,7 +64,7 @@ export interface Volunteer{
   uid?:string,
   firstName?:string | null,
   lastName?:string,
-  skills?:string| undefined | null,
+  skills?:string[]| undefined | null,
   experiences?:any,
   courses?:any,
   phone?:string,

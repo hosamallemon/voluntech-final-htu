@@ -26,7 +26,7 @@ export class VolunteerRegistrationComponent implements OnInit {
     lastName:this.fb.control('',[Validators.required,Validators.minLength(3),Validators.maxLength(9)]),
     email:this.fb.control('',[Validators.required,Validators.email]),
     password:this.fb.control('',[Validators.required,Validators.minLength(8)]),
-    skills:'',
+    skills:[],
     courses:'',
     availableTime:'',
     experiences:'',
@@ -60,10 +60,10 @@ export class VolunteerRegistrationComponent implements OnInit {
               email: data.user?.email + '',
               city: this.registerForm.value.city+'',
               phone: this.registerForm.value.phone+'',
-              courses: this.registerForm.value.phone+'',
-              experiences: this.registerForm.value.phone+'',
+              courses: this.registerForm.value.courses+'',
+              experiences: this.registerForm.value.experiences+'',
               // range: this.registerForm.value.phone+'',
-              skills: this.registerForm.value.phone+'',
+              skills: this.registerForm.value.skills,
 
             })
 

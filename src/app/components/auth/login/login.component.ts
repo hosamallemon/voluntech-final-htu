@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['company']);
         else{
           this.router.navigate(['volunteer']);
-        }
+        } 
       },
       // error:(error)=>{
       //   alert(error)

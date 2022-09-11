@@ -3,6 +3,8 @@ import { from, map, of, switchMap } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs/internal/Observable';
 import { AuthService } from '../authServ/auth.service';
+import { collectionData } from '@angular/fire/firestore';
+import { collection } from '@firebase/firestore';
 
 
 @Injectable({
@@ -52,15 +54,25 @@ export class ActivityService {
     return this.firestore.collection<Activity>('activities', ref=> ref.where("companyId", '==', companyId)).valueChanges({'idField':'id'});
   }
 
-  addApplicant(activityId: string,applicantId:string){
-    this.activitiesCollection.doc(activityId).collection('applicants').add({
-      applicantId: applicantId,
-      approved: false
+  addApplicant(applicant : ActivityApplicant){
+    // item = collectionData(collection())
+
+    this.activitiesCollection.doc(applicant.activityId).collection('applicants').add(
+      {
+      applicantId: applicant.applicantUserId,
+      applicantFirstName: applicant.applicantFirstName,
+      applicantLastName: applicant.applicantLastName,
+      applicantCity: applicant.applicantCity,
+      applicantSkills: applicant.applicantSkills,
+      approved: false,
+      photoUrl:applicant.photoUrl,
+      // idField: collection('applicants').id
+
     });
   }
 
   getApplicant(activityId: string){
-    return this.firestore.collection<Activity>('activities').doc(activityId).collection<ActivityApplicant>('applicants').valueChanges();
+    return this.firestore.collection<Activity>('activities').doc(activityId).collection<ActivityApplicant>('applicants').valueChanges({'idField':'id'});
   }
   approveApplicant(activityApplicant: ActivityApplicant){
     return from(this.activitiesCollection.doc(activityApplicant.activityId).collection('applicants').doc(activityApplicant.id).update(activityApplicant));
@@ -99,9 +111,13 @@ export interface Activity {
 }
 export interface ActivityApplicant {
   id?: string,
-  applicantUserId: string,
+  applicantUserId?: string,
   activityId: string,
-  applicantName: string,
-  applicantImageUrl: string,
-  approved: boolean
+  applicantFirstName?: string,
+  applicantLastName?: string,
+  applicantCity?: string,
+  applicantSkills?: string[]|null|undefined,
+  applicantImageUrl?: string,
+  approved?: boolean,
+  photoUrl?:string
 };
