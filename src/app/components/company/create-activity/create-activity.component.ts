@@ -43,7 +43,7 @@ export class CreateActivityComponent implements OnInit,OnDestroy {
     return this.form.controls.skillsRequired;
   }
   constructor(private fb: FormBuilder, private activityService: ActivityService,
-    private auth: AuthService,
+    private authService: AuthService,
     private router: Router,
     private companyserv:CompanyService) {
 
@@ -67,54 +67,27 @@ export class CreateActivityComponent implements OnInit,OnDestroy {
     //create activity for that userid
     //navigate all activities page
     console.log("my chips",this.form.get('skillsRequired'))
-    this.companyserv.userState$?.pipe(take(1)).subscribe((profile)=> {
-      if(profile){
-        this.activityService.create({
-          companyName:profile.companyName+'',
-          name: this.form.value.name+'',
-          companyId: profile.uid+'',
-          companyType: profile.companyType+'',
-          skillsRequired: this.skills,
-          description: this.form.value.description+'',
-          range: {...this.form.value.range}
-        }).subscribe(()=> {
-          //navigate to all activities page
-          console.log('activity was created successfully');
-          this.router.navigate(['company/activities']);
-        })
-      }})
-
+    this.authService.userState$?.pipe(take(1)).subscribe((authData)=> {
+      this.companyserv.userState$?.pipe(take(1)).subscribe((profile)=> {
+        if(profile){
+          this.activityService.create({
+            companyName:profile.companyName+'',
+            name: this.form.value.name+'',
+            companyId: profile.uid+'',
+            companyType: profile.companyType+'',
+            skillsRequired: this.skills,
+            description: this.form.value.description+'',
+            range: {...this.form.value.range},
+            photoUrl:       authData?.photoURL+'',
+          }).subscribe(()=> {
+            //navigate to all activities page
+            console.log('activity was created successfully');
+            this.router.navigate(['company/activities']);
+          })
+        }})
+    })
     }
-    // let subscriber = this.companyserv.userState$.pipe(take(1)).subscribe((userCredentials)=> {
-    //   if(userCredentials){
-    //     this.activityService.create({
-    //       companyName:userCredentials.companyName,
-    //       name: this.form.value.name+'',
-    //       companyId: userCredentials.uid,
-    //       description: this.form.value.description+'',
-    //       range: {...this.form.value.range}
-    //     }).subscribe(()=> {
-    //       //navigate to all activities page
-    //       console.log('activity was created successfully');
-    //       this.router.navigate(['company/activities']);
-    //     })
-    //   }
-    // });
-    // let subscriber = this.auth.userState$.pipe(take(1)).subscribe((userCredentials)=> {
-    //   if(userCredentials){
-    //     this.activityService.create({
-    //       companyName:userCredentials.companyName,
-    //       name: this.form.value.name+'',
-    //       companyId: userCredentials.uid,
-    //       description: this.form.value.description+'',
-    //       range: {...this.form.value.range}
-    //     }).subscribe(()=> {
-    //       //navigate to all activities page
-    //       console.log('activity was created successfully');
-    //       this.router.navigate(['company/activities']);
-    //     })
-    //   }
-    // });
+
     add(event: MatChipInputEvent): void {
       const value = (event.value || '').trim();
 

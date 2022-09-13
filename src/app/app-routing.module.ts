@@ -24,6 +24,7 @@ import { AllActivitesComponent } from './components/volunteer/all-activites/all-
 import { ActivityDetailsComponent } from './components/volunteer/activity-details/activity-details.component';
 import { ApplicantsListComponent } from './components/company/applicants-list/applicants-list.component';
 import { VolunteerEditProfileComponent } from './components/volunteer/volunteer-edit-profile/volunteer-edit-profile.component';
+import { ContactComponent } from './components/about/contact/contact.component';
 
 const routes: Routes = [
   // {path:'',redirectTo:'/landing',pathMatch:'full'},
@@ -31,27 +32,8 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   // {path:'register',component:RegisterComponent},
   {path:'not-authorized',component:NotAuthorizedComponent},
-  // {path:'',component: LandingLayoutComponent,children:[
-  //   {path:'',redirectTo:'/landing' ,pathMatch:'full'},
-  //   {path:'landing',component:LandingComponent}
-  // ]},
-  // {path:'',component: VolunteerLayoutComponent ,children:[
-  //   {path:'',redirectTo:'/volunteer' ,pathMatch:'full'},
-  //   {path:'volunteer',component:VolunteerProfileComponent}
-  // ]},
-  // {path:'',component: CompanyLayoutComponent ,children:[
-  //   {path:'',redirectTo:'/company',pathMatch:'full'},
-  //   {path:'company',component:CompanyProfileComponent},
-  // ]},
+  {path:'contact',component:ContactComponent},
 
-  // {path:'',component: AuthLayoutComponent ,children:[
-  //   {path:'',redirectTo:'/login',pathMatch:'full'},
-  //   {path:'login',component:LoginComponent}
-  // ]},
-  // {path:'',component: AuthLayoutComponent ,children:[
-  //   {path:'',redirectTo:'/register',pathMatch:'full'},
-  //   {path:'register',component:RegisterComponent}
-  // ]},
     {path:'register',component: RegisterTypeLayoutComponent ,children:[
       {path:'',redirectTo:'/register/volunteer',pathMatch:'full'},
       // {path:'type',component:RegisterTypeComponent},
@@ -68,10 +50,6 @@ const routes: Routes = [
     {path: 'activities/:id', component: ApplicantsListComponent},
   ]},
 
-  // {path:'volunteer',component: VolunteerLayoutComponent , canActivate:[AuthGuard], children:[
-  //   {path:'',redirectTo:'/volunteer/profile/:id' ,pathMatch:'full'},
-  //   {path:'profile/:id',component:VolunteerProfileComponent}
-  // ]},
   {path:'volunteer',component: VolunteerLayoutComponent , canActivate:[AuthGuard,VolunteerGuard], children:[
     {path:'',redirectTo:'/volunteer/profile' ,pathMatch:'full'},
     {path:'profile',component:VolunteerProfileComponent},

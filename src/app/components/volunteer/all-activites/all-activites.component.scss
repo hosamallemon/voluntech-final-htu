@@ -1,10 +1,37 @@
+.overlay{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fefefe;
+  z-index: -1;
+}
+.desc{
+  margin: 20px 20px !important;
+
+}
 .container{
-  display: flex;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  gap: 50px;
+
   flex-wrap: wrap;
+  margin-top: 100px;
+}
+
+.heading{
+  display: flex;
+  align-items: center;
+  mat-card-title{
+    margin-top: 20px;
+  }
 }
 .card {
-  max-width: 300px;
+  // max-width: 300px;
+  width: 100%;
+  border: 1px solid black;
 }
 
 .example-header-image {
@@ -19,5 +46,19 @@ a{
   background-color: #01BC9A !important;
   text-transform: capitalize;
   font-size: 16px;
-  margin-right: 20px;
+  margin-right: 50px;
+}
+img{
+  object-fit: cover;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border-radius: 50%;
+  border: 3px solid orange;
+  padding: 5px;
+}
+
+mat-card-actions{
+  display: flex;
+  justify-content: center;
 }

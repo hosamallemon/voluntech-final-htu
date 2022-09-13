@@ -1,4 +1,39 @@
-<p>activity-details works!</p>
-<p *ngIf= "activity">{{activity.name}}</p>
 
-<button (click)="apply()">apply</button>
+<div class="wrapper">
+
+  <div class="form-container">
+    <!-- <p *ngIf="profile">{{profile.lastName}}</p> -->
+        <aside>
+          <div class="background">
+            <div class="wrapper">
+              <h1>Activity Detail</h1>
+            </div>
+          </div>>
+        </aside>
+      </div>
+<div class="container">
+  <div class="heading">
+    <h1>Activity Name</h1>
+    <p *ngIf= "activity">{{activity.name}}</p>
+  </div>
+  <div class="activity">
+    <h2>Company Name</h2>
+    <p *ngIf= "activity">{{activity.companyName | uppercase}}</p>
+    <h2>Activity description</h2>
+    <p *ngIf= "activity">{{activity.description| uppercase}}</p>
+    <h2>Skills required</h2>
+    <p *ngIf= "activity">{{activity.skillsRequired}}</p>
+    <h2>Start Date</h2>
+    <!-- {{element.range.start.toDate() | date: 'yyyy/MM/dd'}} -->
+    <p *ngIf= "activity">{{activity.range?.start.toDate()| date: 'yyyy/MM/dd'}}</p>
+    <h2>End Date</h2>
+    <p *ngIf= "activity">{{activity.range?.end.toDate()| date: 'yyyy/MM/dd'}}</p>
+    <div class="btn">
+
+      <button (click)="Back()">Back</button>
+      <button (click)="apply()">apply</button>
+    </div>
+  </div>
+</div>
+</div>
+<div class="overlay"></div>

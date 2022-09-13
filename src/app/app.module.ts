@@ -49,6 +49,8 @@ import {MatTableModule} from '@angular/material/table';
 import { ApplicantsListComponent } from './components/company/applicants-list/applicants-list.component';
 import { VolunteerEditProfileComponent } from './components/volunteer/volunteer-edit-profile/volunteer-edit-profile.component';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { ContactComponent } from './components/about/contact/contact.component';
+import { AboutUsComponent } from './components/about/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,9 @@ import { HotToastModule } from '@ngneat/hot-toast';
     ActivityDetailsComponent,
     ApplicantsListComponent,
     EditProfileComponent,
-    VolunteerEditProfileComponent
+    VolunteerEditProfileComponent,
+    ContactComponent,
+    AboutUsComponent
 
 
 

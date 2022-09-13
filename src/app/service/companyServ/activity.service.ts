@@ -77,6 +77,11 @@ export class ActivityService {
   approveApplicant(activityApplicant: ActivityApplicant){
     return from(this.activitiesCollection.doc(activityApplicant.activityId).collection('applicants').doc(activityApplicant.id).update(activityApplicant));
   }
+  deleteApplicant(activityId:string,id: string){
+    // const docReference = doc(this.firestore, 'profiles/'+id);
+    // return deleteDoc(docReference);
+    return from(this.activitiesCollection.doc(id).collection('applicants').doc(activityId).delete());
+  }
 
   create(activity: Activity){
     //  return addDoc(this.profilesCollection,profile);
@@ -107,7 +112,8 @@ export interface Activity {
     start?: any | null | undefined,
     end?: any | null | undefined
   },
-  companyId?: string
+  companyId?: string,
+  photoUrl?:string
 }
 export interface ActivityApplicant {
   id?: string,
@@ -119,5 +125,5 @@ export interface ActivityApplicant {
   applicantSkills?: string[]|null|undefined,
   applicantImageUrl?: string,
   approved?: boolean,
-  photoUrl?:string
+  photoUrl?:string|boolean
 };

@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map, take } from 'rxjs';
+import { map, Observable, startWith, take } from 'rxjs';
 import { AuthService } from 'src/app/service/authServ/auth.service';
 import { PicUploadService } from 'src/app/service/picture-upload/pic-upload.service';
 import { Volunteer, VolunteerService } from 'src/app/service/volunteerServ/volunteer.service';
 import { switchMap } from 'rxjs';
+import {MatChipInputEvent} from '@angular/material/chips';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
 @Component({
   selector: 'app-volunteer-edit-profile',
@@ -13,27 +16,27 @@ import { switchMap } from 'rxjs';
   styleUrls: ['./volunteer-edit-profile.component.scss']
 })
 export class VolunteerEditProfileComponent implements OnInit {
-
-
-  // firstName?:string;
-  // lastName?:string;
-  // email?:string;
-  // password?:number;
-  // phone?:string;
-  // pic?:string;
-  // skills?:string;
-  // experiences?:any;
-  // courses?:any;
-  // availableTime?:string;
-  // id?: string;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+  skillsCtrl = new FormControl('');
+  filteredskills: Observable<string[]>;
+  skills: string[] = [];
+  allSkills: string[] = ['HTML', 'Css', 'JavaSript', 'Angular', 'Git','Php','Asp'];
   profile?:Volunteer;
+  @ViewChild('fruitInput')
+  fruitInput!: ElementRef<HTMLInputElement>;
+
   constructor(
     private volunService:VolunteerService,
     private fb:FormBuilder,
     private router:Router,
     private route:ActivatedRoute,
     public authService:AuthService,
-    private uploadService:PicUploadService,) { }
+    private uploadService:PicUploadService,) {
+      this.filteredskills = this.skillsCtrl.valueChanges.pipe(
+        startWith(null),
+        map((fruit: string | null) => (fruit ? this._filter(fruit) : this.allSkills.slice())),
+      );
+    }
 
   profileInfo = this.fb.group({
     firstName:this.fb.control('',[Validators.required,Validators.maxLength(12)]),
@@ -67,7 +70,7 @@ export class VolunteerEditProfileComponent implements OnInit {
         email: user?.email+'',
         phone: this.profileInfo.value.phone+'',
         experiences: this.profileInfo.value.experiences+'',
-        skills: this.profileInfo.value.skills,
+        skills: this.skills,
         courses: this.profileInfo.value.courses+'',
         range:{...this.profileInfo.value.range},
         city: this.profileInfo.value.city+'',
@@ -113,4 +116,37 @@ export class VolunteerEditProfileComponent implements OnInit {
 
   }
 
+  add(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+
+    // Add our fruit
+    if (value) {
+      this.skills.push(value);
+    }
+
+    // Clear the input value
+    event.chipInput!.clear();
+
+    this.skillsCtrl.setValue(null);
+  }
+
+  remove(fruit: string): void {
+    const index = this.skills.indexOf(fruit);
+
+    if (index >= 0) {
+      this.skills.splice(index, 1);
+    }
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.skills.push(event.option.viewValue);
+    this.fruitInput.nativeElement.value = '';
+    this.skillsCtrl.setValue(null);
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.allSkills.filter(skills => skills.toLowerCase().includes(filterValue));
+  }
 }

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/service/authServ/auth.service';
 import { Activity, ActivityApplicant, ActivityService } from 'src/app/service/companyServ/activity.service';
 import { Volunteer, VolunteerService } from './../../../service/volunteerServ/volunteer.service';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-applicants-list',
@@ -19,7 +20,8 @@ export class ApplicantsListComponent implements OnInit {
     public authService: AuthService,
     private volunteerServ:VolunteerService,
     private router:Router,
-    private route:ActivatedRoute) { }
+    private route:ActivatedRoute,
+    private toast: HotToastService,) { }
 
 
 
@@ -40,14 +42,14 @@ export class ApplicantsListComponent implements OnInit {
     }
     approve(btn:any){
       const id1 = this.route.snapshot.paramMap.get('id') as string;
-      console.log(btn.id, 'btn');
-      this.authService.userState$.subscribe((userCredential)=> {
+      this.authService.userState$.pipe(
+        this.toast.observe({
+        loading: 'Applying in ...',
+        success: 'Approve Successfully',
+        error:(error)=> 'This error Happened: '+error
+      })).subscribe((userCredential)=> {
         this.activitiesService.approveApplicant({id:btn.id+'',activityId:id1,approved:true}).subscribe((data)=> {
-          console.log(data, 'before filter');
-          // if(data){
-          //   this.dataSource.data = data;
-          //   console.log(this.dataSource,'after filter');
-          // }
+          this.activitiesService.deleteApplicant(btn.id,id1)
         })
       })
     }

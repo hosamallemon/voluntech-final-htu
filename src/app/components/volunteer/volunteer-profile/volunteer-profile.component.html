@@ -1,55 +1,60 @@
 
 <section>
   <div class="form-container" *ngIf="authService.userState$ | async as user">
-<!-- <p *ngIf="profile">{{profile.lastName}}</p> -->
-    <aside>
-      <div class="background">
-        <div class="wrapper">
-          <h1>Profile information</h1>
-          <!-- <h2>welcome </h2> -->
-          <!-- <button class="button" type="butoon" (click)="back()">back</button> -->
-          <!-- <div class="button logout-btn" id="button-3">
-            <div id="circle"></div>
-            <button class="btn" (click)="all()">All event</button>
-          </div> -->
-        </div>
-      </div>>
-    </aside>
+  <!-- <div class="form-container" *ngIf="volunService.userState$ | async as volunteer"> -->
 
-    <div class="info">
-      <div class="heading">
-        <h1>Profile information</h1>
-        <button (click)="edit()">Complete Profile Detail</button>
-      </div>
-      <div class="pofile-img">
-        <!-- <div class="shape">
-          </div> -->
-        <div class="background-img">
-          <img [src]="user.photoURL??'./assets/images/default.png'" alt="">
-          <button mat-mini-fab (click)="inputFile.click()"><mat-icon>edit</mat-icon></button>
-          <input type="file" #inputFile accept="image/*" hidden value="select image" (change)="changePic($event)">
-        </div>
-      </div>
+    <!-- <p *ngIf="profile">{{profile.lastName}}</p> -->
+        <aside>
+          <div class="background">
+            <div class="wrapper">
+              <h1>Profile information</h1>
+              <!-- <h2>welcome </h2> -->
+              <!-- <button class="button" type="butoon" (click)="back()">back</button> -->
+              <!-- <div class="button logout-btn" id="button-3">
+                <div id="circle"></div>
+                <button class="btn" (click)="all()">All event</button>
+              </div> -->
+            </div>
+          </div>>
+        </aside>
 
-      <div class="detail" *ngIf="profile">
-        <h2 >Welcome {{profile.firstName +' '+ profile.lastName |uppercase}}</h2>
-        <h3>You have the power to make a difference in your community</h3>
-        <div class="btn">
-          <button (click)="all()">All Activity</button>
+        <div class="info">
+          <div class="heading">
+            <h1>Profile information</h1>
+            <button (click)="edit()">Complete Profile Detail</button>
+          </div>
+          <div class="pofile-img">
+            <!-- <div class="shape">
+              </div> -->
+            <div class="background-img">
+              <img [src]="user.photoURL??'./assets/images/default.png'" alt="">
+              <button mat-mini-fab (click)="inputFile.click()"><mat-icon>edit</mat-icon></button>
+              <input type="file" #inputFile accept="image/*" hidden value="select image" (change)="changePic($event)">
+            </div>
+          </div>
+
+          <div class="detail" *ngIf="profile">
+            <h2 >Welcome {{profile.firstName +' '+ profile.lastName |uppercase}}</h2>
+            <h3>You have the power to make a difference in your community</h3>
+            <div class="btn">
+              <button (click)="all()">All Activity</button>
+            </div>
+            <div class="more">
+              <p>Email : {{profile.email}}</p>
+              <span>|</span>
+              <p>Phone : {{profile.phone | uppercase}}</p>
+            </div>
+            <p>city : {{profile.city | uppercase}}</p>
+            <div class="experience">
+              <h2>experience</h2>
+            </div>
+            <div class="skills">
+              <h2>skills</h2>
+              <div >{{profile.skills}}</div>
+              <!-- <p>{{profile.skills | uppercase}}</p> -->
+            </div>
+          </div>
         </div>
-        <div class="more">
-          <p>Email : {{profile.email}}</p>
-          <span>|</span>
-          <p>Phone : {{profile.phone | uppercase}}</p>
-        </div>
-        <p>city : {{profile.city | uppercase}}</p>
-        <div class="experience">
-          <h2>experience</h2>
-        </div>
-        <div class="skills">
-          <h2>skills</h2>
-        </div>
-      </div>
-    </div>
   </div>
+  <!-- </div> -->
 </section>
