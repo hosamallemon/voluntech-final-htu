@@ -32,7 +32,7 @@ const ELEMENT_DATA: Activity[] = [
 })
 export class CompanyActivitiesListComponent implements OnInit {
 
-  displayedColumns: string[] = ['companyName', 'name', 'skills', 'description','startDate','endDate','applicant'];
+  displayedColumns: string[] = [ 'name', 'skills', 'description','startDate','endDate','applicant'];
   dataSource:MatTableDataSource<Activity> = new MatTableDataSource<Activity>([]);
 
   constructor(public activitiesService: ActivityService, public authService: AuthService,private router:Router) { }
